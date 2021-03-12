@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h4 class="text-center">Accès Réservé à l'administration</h4>
+<form id="admin">
+    <label>Utilisateur : </label><input name="user"></input><br/>
+    <label>Mot de Passe : </label><input name="password"></input><br/>
+    <button type="submit" class="btn"> Se connecter </button>
+</form>
+
+{% endblock body %}

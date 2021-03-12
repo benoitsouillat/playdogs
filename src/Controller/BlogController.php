@@ -53,5 +53,14 @@ class BlogController extends AbstractController
             'title' => 'Nous contacter',
         ]);
     }
+    /**
+     * @Route("/admin", name="admin")
+     */
+    public function admin(): Response
+    {
+        return $this->render('playdogs/admin.html.twig',[
+            'title' => 'Se connecter',
+        ]);
+    }
 
 }

@@ -1,0 +1,24 @@
+#admin {
+    margin-top: 50px;
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    input {
+        min-width: 190px;
+        width: 20%;
+        max-width: 400px;
+    }
+
+    .btn {
+        margin-top: 50px;
+        border-color: black;
+        &:hover {
+            border-right-color: $hover-color;
+            border-left-color: $hover-color;
+        }
+    }
+}
