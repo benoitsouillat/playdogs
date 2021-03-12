@@ -1,0 +1,9 @@
+#accueil {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    p {
+        max-width: 70%;
+    }
+}

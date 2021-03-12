@@ -1,0 +1,10 @@
+$first-color: #fff;
+$second-color: #000;
+$third-color: rgb(206, 111, 111);
+$fourth-color:rgb(171, 220, 171);
+
+$text-color: $second-color;
+$link-color: $third-color;
+$hover-color: $fourth-color;
+$title-color: $third-color;
+$navbar-color: darken($first-color, 15);
