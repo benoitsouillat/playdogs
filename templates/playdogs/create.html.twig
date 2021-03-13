@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{{ form_start(formDog) }}
+
+    <div class="form-group">
+        {{ form_row(formDog.name, {'label': 'Nom du chien','attr': {'placeholder': 'Nom du chien', 'class': 'form-control w-25'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(formDog.race, {'label': 'Race du chien','attr': {'placeholder': 'Race du chien', 'class': 'form-control w-25'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(formDog.owner, {'label': 'Propriétaire','attr': {'placeholder': 'Propriétaire du chien', 'class': 'form-control w-25'}}) }}
+    </div>
+
+    <button type="submit" class="btn">Ajouter le chien</button>
+
+{{ form_end(formDog) }}
+
+
+{% endblock body %}

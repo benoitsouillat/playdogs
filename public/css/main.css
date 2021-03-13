@@ -15,7 +15,7 @@ nav {
   background-image: url("/img/bann.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position-y: -120px;
+  background-position: center;
 }
 
 nav ul {
