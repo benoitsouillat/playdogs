@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <a href="{{ path('dog_create') }}" class="btn">Ajouter un chien</a>
+
+    <section>
+        <h2>Fichier Client :</h2>
+        <ul>
+        {% for dog in dogs %}
+    
+        <li>Nom du chien : 
+            <a href="/manage/{{ dog.id }}" >{{ dog.name }} </a> appartenant à {{ dog.owner }}</li>
+    
+        {% endfor %}
+    
+        </ul>
+    </section>
+
+
+{% endblock %}

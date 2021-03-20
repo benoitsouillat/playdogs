@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h4 class="text-center">Accès Réservé à l'administration</h4>
+<form id="admin" action="{{ path('login') }}" method="POST">
+    <label>Utilisateur : </label>
+    <input required name="_username" type="text" ></input>
+<br/>
+    <label>Mot de Passe : </label>
+    <input required name="_password" type="password"></input>
+<br/>
+<button type="submit" class="btn"> Se connecter </button>
+</form>
+
+
+
+{% endblock body %}
