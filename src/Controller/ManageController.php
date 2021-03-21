@@ -60,8 +60,6 @@ class ManageController extends AbstractController
         ]);
     }
 
-
-
     /**
      * @Route ("/manage/{id}", name="search")
      */

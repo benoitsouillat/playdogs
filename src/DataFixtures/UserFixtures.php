@@ -29,7 +29,13 @@ class UserFixtures extends Fixture
         // $product = new Product();
         // $manager->persist($product);
 
+        $userSimple = new User();
+        $userSimple->setUsername('Toiletteur')
+            ->setPassword($encoded)
+            ->setRoles(['ROLE_USER']);
+
         $manager->persist($user);
+        $manager->persist($userSimple);
         $manager->flush();
     }
 }
