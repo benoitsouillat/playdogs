@@ -31,10 +31,9 @@ class ManageController extends AbstractController
      * @Route("/manage/new", name="dog_create")
      */
 
-    public function createDog(Request $request): Response {
+    public function createDog(EntityManagerInterface $manager, Request $request): Response {
 
         $dog = new Dog();
-        $manager = $this->getDoctrine()->getManager();
 
         $form = $this->createFormBuilder($dog)
                     ->add('name')
@@ -43,7 +42,6 @@ class ManageController extends AbstractController
                     ->getForm();
 
         $form->handleRequest($request);
-
         if($form->isSubmitted() && $form->isValid())
         {
             $dog->setCreatedAt(new \DateTime());

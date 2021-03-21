@@ -22,3 +22,67 @@
         }
     }
 }
+
+.manage {
+
+    div, section {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    &__option {
+        flex-direction: row;
+        justify-content: center;
+
+        input {
+            height: 40px;
+            min-width: 220px;
+            margin: 0 40px;
+        }
+    }
+    &__list {
+        flex-direction: column;
+
+        li {
+            font-size: 1.2rem;
+            line-height: 2.5rem;
+        }
+    }
+    &__add {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        flex-direction: column;
+
+        form {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            div {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            input {
+                min-width: 300px;
+            }
+        }
+        > div {
+            align-self: flex-end;
+        }
+        .price {
+            ul {
+                padding: 0;
+                font-weight: bold;
+                font-size: 20px;
+                text-decoration: underline;
+                color: red;
+            }
+        }
+    }
+
+}

@@ -2,6 +2,8 @@
 
 {% block body %}
 
+<div class="manage__add">
+
 {{ form_start(formDog) }}
 
     <div class="form-group">
@@ -15,11 +17,14 @@
     </div>
 
     <button type="submit" class="btn">Ajouter le chien</button>
+
+
+{{ form_end(formDog) }}
+
     <div>
         <a href="{{ path('manage') }}" class="btn">Revenir à la liste</a>
     </div>
-
-{{ form_end(formDog) }}
+</div>
 
 
 {% endblock body %}

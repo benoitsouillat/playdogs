@@ -4,17 +4,27 @@
 
 {% if app.user %}
 
-    <a href="{{ path('dog_create') }}" class="btn">Ajouter un chien</a>
-    <input placeholder="Rechercher un chien ou un client"></input>
-    <section class="d-flex flex-column align-items-center">
-        <h2>Fichier Client :</h2>
-        <ul>
-            {% for dog in dogs %}
-            <li>Nom du chien : 
-                <a href="/manage/{{ dog.id }}" >{{ dog.name }} </a> appartenant à M. {{ dog.owner }}</li>
-            {% endfor %}
-        </ul>
-    </section>
+    <div class="manage">
+        <div class="manage__option">
+            <a href="{{ path('dog_create') }}" class="btn">Ajouter un chien</a>
+            <input placeholder="Rechercher un chien ou un client"></input>
+        <!--
+            <a href="{{ path('dog_create') }}" class="btn">Trier par nom du chien</a>
+            <a href="{{ path('dog_create') }}" class="btn">Trier par race</a>
+            <a href="{{ path('dog_create') }}" class="btn">Trier par client</a>
+        -->
+
+        </div>
+        <section class="manage__list">
+            <h2>Liste des clients :</h2>
+            <ul>
+                {% for dog in dogs %}
+                <li> -
+                    <a href="/manage/{{ dog.id }}" >{{ dog.name }} </a>, est un {{ dog.race }} appartenant à M. <a href="/manage/{{ dog.id }}" >{{ dog.owner }} </a></li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
 
 
 {% else %}

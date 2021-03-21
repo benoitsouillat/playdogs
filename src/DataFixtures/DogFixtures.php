@@ -13,8 +13,8 @@ class DogFixtures extends Fixture
         for($i = 1; $i <= 10; $i++ ){
             $dog = new Dog();
             $dog->setName("Chien n°$i")
-                ->setRace("<p>Race de chien n°$i</p>")
-                ->setOwner("Mr et Mme $i")
+                ->setRace("Caniche Moyen")
+                ->setOwner("Tartampion $i")
                 ->setCreatedAt(new \DateTime());
 
             $manager->persist($dog);

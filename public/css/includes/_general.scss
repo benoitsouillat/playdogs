@@ -45,6 +45,7 @@ nav {
     }
 }
 
+
 ul {
     list-style: none;
 }
@@ -104,6 +105,7 @@ footer {
         display: flex;
         flex-direction: column;
         background-color: rgba(0, 0, 0, .4);
+        flex-shrink: 0;
 
 
         a {

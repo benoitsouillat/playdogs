@@ -161,6 +161,8 @@ footer {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: rgba(0, 0, 0, 0.4);
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 .head-title section a {
@@ -223,6 +225,55 @@ footer {
   max-width: 70%;
 }
 
+.price-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.price-container > div {
+  width: 60%;
+}
+
+.price-container > div > p {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.price-table {
+  width: 80%;
+}
+
+.price-table thead {
+  background-color: #99d599;
+  font-weight: bold;
+  text-align: center;
+}
+
+.price-table thead tr {
+  border: solid 1px #000;
+}
+
+.price-table tbody {
+  width: 100%;
+}
+
+.price-table tbody tr {
+  height: 30px;
+}
+
+.price-table tbody tr td {
+  text-align: center;
+  font-weight: bold;
+}
+
 #admin {
   margin-top: 50px;
   width: 100%;
@@ -256,5 +307,108 @@ footer {
 #admin .btn:hover {
   border-right-color: #abdcab;
   border-left-color: #abdcab;
+}
+
+.manage div, .manage section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.manage__option {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.manage__option input {
+  height: 40px;
+  min-width: 220px;
+  margin: 0 40px;
+}
+
+.manage__list {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.manage__list li {
+  font-size: 1.2rem;
+  line-height: 2.5rem;
+}
+
+.manage__add {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.manage__add form {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.manage__add form div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.manage__add form input {
+  min-width: 300px;
+}
+
+.manage__add > div {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.manage__add .price ul {
+  padding: 0;
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: underline;
+  color: red;
 }
 /*# sourceMappingURL=main.css.map */

@@ -2,9 +2,10 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Price;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class GuestController extends AbstractController
 {
@@ -22,8 +23,14 @@ class GuestController extends AbstractController
      */
     public function price(): Response
     {
+        $repo = $this->getDoctrine()->getRepository(Price::class);
+        $values = $repo->findBy(
+            array(),
+            array('race' => 'ASC')
+        );
         return $this->render('playdogs/price.html.twig', [
             'title' => 'Retrouvez nos tarifs',
+            'values' => $values
         ]);
     }
     /**

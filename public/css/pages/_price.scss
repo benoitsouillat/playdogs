@@ -1,0 +1,43 @@
+
+.price-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > div
+        {
+            width: 60%; 
+        > p {
+            margin-top: 40px;
+            text-align: center;
+        }
+    }
+}
+
+
+.price-table {
+
+    width: 80%;
+
+    thead {
+        background-color: darken($fourth-color, 5);
+        font-weight: bold;
+        text-align: center;
+        tr {
+            border: solid 1px $second-color;
+        }
+    }
+    tbody {
+        width: 100%;
+
+        tr {
+            height: 30px;
+
+            td {
+                text-align: center;
+                font-weight: bold;
+            }
+        }
+    }
+
+}

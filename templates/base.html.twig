@@ -48,15 +48,16 @@
 
             </nav>
         </header>
-
-        <h1 class="underline"> {{ title }}</h1>
+        <main>
+            <h1 class="underline"> {{ title }}</h1>
         {% block body %}
         {% endblock %}
+        </main>
         <footer>
             <hr>
             <p>Nous vous remercions pour votre visite, en espérant vous revoir bientôt</p>
             <div>
-                <a href="{{ path('postulation') }}" >Nous rejoindre - </a>
+                <a href="{{ path('postulation') }}" >Nous rejoindre</a> -
                 <a href="{{ path('login') }}"> Se connecter</a>
             </div>
         </footer>

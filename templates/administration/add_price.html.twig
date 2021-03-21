@@ -1,6 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
+
+<div class="manage__add">
+{{ form_start(form, {'attr': {'class': 'price'}}) }}
+
+{{ form_row(form.race) }}
+{{ form_row(form.tonte) }}
+{{ form_row(form.coupe) }}
+{{ form_row(form.epilation) }}
+{{ form_row(form.bain) }}
+<button class="btn" type="submit">Valider le prix</button>
+</div>
+
+{{ form_end(form) }}
+
 <div class="price-container">
     <table class="price-table">
         <thead>
@@ -19,7 +34,7 @@
         
             {% for value in values %}
             <tr>
-                <td>{{ value.race }} </td>
+                <td><a href="/admin/price/{{ value.id }}" >{{ value.race }} </a></td>
                 <td>{{ value.tonte }} €</td>
                 <td>{{ value.coupe }} €</td>
                 <td>{{ value.epilation }} € </td>
@@ -29,12 +44,5 @@
             {% endfor %}
         </tbody>
     </table>
-
-    <div>
-        <p>Des suppléments de tarif peuvent s'appliquer dans le cas d'un démélage important, d'un chien difficile ou mordeur, ou d'une tonte compliquée dûe à une fourrure mal entretenue <br/>
-        Les suppléments peuvent s'appliquer également dans le cas d'une garde de votre chien dépassant de 30 minutes l'horaire prévisionnelle ou réelle de fin de prestation.</p>
-    </div>
 </div>
-
-
-{% endblock body %}
+{% endblock %}
