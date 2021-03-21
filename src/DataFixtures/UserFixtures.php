@@ -25,7 +25,7 @@ class UserFixtures extends Fixture
         $encoded = $this->encoder->encodePassword($user, 'mdp');
         $user->setUsername('Sabine')
             ->setPassword($encoded)
-            ->setRole('administrateur');
+            ->setRoles(['ROLE_ADMIN']);
         // $product = new Product();
         // $manager->persist($product);
 

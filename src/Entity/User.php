@@ -33,9 +33,9 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=30)
+     * @ORM\Column(type="array", nullable=true)
      */
-    private $role;
+    private $roles = [];
 
     public function getId(): ?int
     {
@@ -65,18 +65,6 @@ class User implements UserInterface
 
         return $this;
     }
-
-    public function getRole(): ?string
-    {
-        return $this->role;
-    }
-
-    public function setRole(string $role): self
-    {
-        $this->role = $role;
-
-        return $this;
-    }
     public function eraseCredentials()
     {
 
@@ -88,7 +76,18 @@ class User implements UserInterface
     }
     public function getRoles()
     {
-        return ['ROLE_USER'];
+        $roles = $this->roles;
+        $roles[] = 'ROLE_USER';
+
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(?array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
     }
 }
 

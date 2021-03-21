@@ -2,20 +2,40 @@
 
 {% block body %}
 
-    <a href="{{ path('dog_create') }}" class="btn">Ajouter un chien</a>
+{% if app.user %}
 
-    <section>
+<section class="d-flex flex-column align-items-center">
+
+{% for role in app.user.roles %}
+    {% if role == "ROLE_USER" %}
+    <h4>Tu es un toiletteur !</h4>
+    {% elseif role == "ROLE_ADMIN" %}
+    <h4>Tu es administrateur</h4>
+    {% endif %}
+{% endfor %}
+
+</section>
+
+    <a href="{{ path('dog_create') }}" class="btn">Ajouter un chien</a>
+    <input placeholder="Rechercher un chien ou un client"></input>
+    <section class="d-flex flex-column align-items-center">
         <h2>Fichier Client :</h2>
         <ul>
-        {% for dog in dogs %}
-    
-        <li>Nom du chien : 
-            <a href="/manage/{{ dog.id }}" >{{ dog.name }} </a> appartenant à {{ dog.owner }}</li>
-    
-        {% endfor %}
-    
+            {% for dog in dogs %}
+            <li>Nom du chien : 
+                <a href="/manage/{{ dog.id }}" >{{ dog.name }} </a> appartenant à M. {{ dog.owner }}</li>
+            {% endfor %}
         </ul>
     </section>
+
+
+{% else %}
+<div>
+    <h3>Vous devez être connecté pour accéder à cette page !! </h3>
+</div>
+
+{% endif %}
+
 
 
 {% endblock %}

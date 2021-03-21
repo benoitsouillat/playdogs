@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Playdog's Toilettage{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
 
@@ -28,8 +28,18 @@
                 </ul>
                 <div class="head-title">
                     <h1>Playdog's</h1>
-                    <h3>Votre salon de toilettage depuis 1999. </h3>
+                    <div>
+                        <h3>Votre salon de toilettage depuis 1999. </h3>
+                        {% if app.user %}
+                        <section>
+                            <h6>Connecté : {{ app.user.username }}</h6>
+                            <a href="{{path('manage')}}" >Gestion</a>
+                            <a class="logout" href="{{path('logout')}}" >Déconnexion</a>
+                        </section>
+                        {% endif %}
+                    </div>
                 </div>
+
             </nav>
         </header>
 

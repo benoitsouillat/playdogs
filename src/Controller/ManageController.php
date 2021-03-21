@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Dog;
+use App\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,7 +23,7 @@ class ManageController extends AbstractController
 
         return $this->render('administration/manage.html.twig', [
             'title' => 'Gestion des clients',
-            'dogs' => $dogs
+            'dogs' => $dogs,
         ]);
     }
 

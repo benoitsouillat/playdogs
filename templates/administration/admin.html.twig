@@ -1,1 +1,14 @@
 {% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if app.user %}
+
+        <p>Affichage des candidatures</p>
+
+    {% else %}
+    <div>
+        <h3>Vous devez être administrateur pour accéder à cette page !! </h3>
+    </div>
+
+    {% endif %}
+{% endblock %}
