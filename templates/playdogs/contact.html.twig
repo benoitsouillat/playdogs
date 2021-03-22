@@ -2,7 +2,35 @@
 
 {% block body %}
 
+<div class="contact-container">
+    {{ form_start(form) }}
 
+    {{ form_row(form.firstname, {'label': 'Votre Nom : '}) }}
+    {{ form_row(form.lastname, {'label': 'Votre Prénom : '}) }}
+    {{ form_row(form.email, {'label': 'Votre Email : '}) }}
+    {{ form_row(form.tel, {'label': 'Votre Mobile : '}) }}
+    {{ form_row(form.message, {'label': false , 'attr': {'placeholder' : 'Entrez votre message ...', 'class': 'w-100'}}) }}
+
+    <button type="submit" class="btn">Envoyer !</button>
+    {{ form_end(form) }}
+    <div class="contact-field">
+
+        <section>
+            <h4>Objat</h4>
+            <p>05 55 84 16 81</p>
+        </section>
+        <section>
+            <h4>Ussac</h4>
+            <p>05 55 84 16 81</p>
+        </section>
+        <img src="{{ asset('img/bichon.jpg')}}" alt='image champ contact' />
+        <section>
+            <h5>Bourget Sabine</h5>
+            <a href="mailto:salonplaydogs@gmail.com">salonplaydogs@gmail.com</a><br/>
+            <a href="tel:+33609260130">06.09.26.01.30</a>
+        </section>
+    </div>
+</div>
 
 
 {% endblock body %}

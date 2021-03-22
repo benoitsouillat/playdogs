@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<div class="admin-postul-container">
+
+    {% for candidate in candidates %}
+
+
+    <section class="admin-postul-content">
+        <h4>{{candidate.firstname}} {{candidate.lastname}} : </h4>
+        <div>
+            <a href="tel:+{{candidate.tel}}" class="btn">Appeler : {{ candidate.tel }}</a>
+            <a href="mailto:{{candidate.email}}" class="btn">Email : {{ candidate.email }}</a>
+        </div>
+        <div class="btn-delete">
+            <a href="{{ path('admin_delete_candidate', {'id': candidate.id }) }}" class="btn">Supprimer</a>
+        </div>
+    </section>
+
+    {% endfor %}
+</div>
+
+{% endblock %}

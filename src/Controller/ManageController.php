@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Dog;
 use App\Entity\User;
+use App\Form\ClientType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,7 +21,10 @@ class ManageController extends AbstractController
     {
 
         $repo = $this->getDoctrine()->getRepository(Dog::class);
-        $dogs = $repo->findAll();
+        $dogs = $repo->findBy(
+            array(),
+            array('name' => 'ASC'),
+        );
 
         return $this->render('administration/manage.html.twig', [
             'title' => 'Gestion des clients',
@@ -27,39 +32,50 @@ class ManageController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/manage/new", name="dog_create")
+     * @Route ("/manage/{id}", name="dog_edit")
      */
 
-    public function createDog(EntityManagerInterface $manager, Request $request): Response {
+    public function createDog(EntityManagerInterface $manager, Request $request, Dog $dog = null): Response {
 
-        $dog = new Dog();
 
-        $form = $this->createFormBuilder($dog)
-                    ->add('name')
-                    ->add('race')
-                    ->add('owner')
-                    ->getForm();
+        
+        if(!$dog)
+        {
+            $dog = new Dog();
+            $search = 0;
+        }
+        else {
+            $id = $dog->getId();
+            $repo = $this->getDoctrine()->getRepository(Dog::class);
+            $search = $repo->find($id);
+        }
+        
+        $form = $this->createForm(ClientType::class, $dog);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
             $dog->setCreatedAt(new \DateTime());
-
             $manager->persist($dog);
             $manager->flush();
 
-            return $this->redirectToRoute('manage');
+            return $this->redirectToRoute('dog_edit', ['id' => $dog->getId()]);
         }
 
         return $this->render('administration/create.html.twig', [
             'formDog' => $form->createView(),
-            'title' => 'Ajouter un chien',
+            'title' => 'Gérer un chien',
+            'dog' => $search
         ]);
     }
 
+
+    
     /**
-     * @Route ("/manage/{id}", name="search")
+     * @Route("/search/{id}", name="search")
      */
     public function search($id): Response
     {
@@ -71,4 +87,5 @@ class ManageController extends AbstractController
             'dog' => $dog
         ]);
     }
+
 }

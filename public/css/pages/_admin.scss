@@ -50,17 +50,18 @@
     }
     &__add {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-around;
+        align-items: flex-start;
         width: 100%;
-        flex-direction: column;
+        flex-direction: row;
 
         form {
-            width: 80%;
+            width: 60%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            margin-bottom: 30px;
             div {
                 width: 100%;
                 display: flex;
@@ -69,10 +70,10 @@
             }
             input {
                 min-width: 300px;
+                min-height: 35px;
+                border: grey solid 2px;
+                border-radius: 2%;
             }
-        }
-        > div {
-            align-self: flex-end;
         }
         .price {
             ul {
@@ -81,6 +82,46 @@
                 font-size: 20px;
                 text-decoration: underline;
                 color: red;
+            }
+        }
+        &__info {
+            min-width: 30%;
+            padding-top: 50px;
+            ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                font-size: 20px;
+                width: 100%;
+                padding: 50px 0;
+                li {
+                    width: 80%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    line-height: 40px;
+                    span {
+                        font-weight: bold;
+                        color: black;
+                        font-style: italic;
+                    }
+                    &:nth-child(5)
+                    {
+                        span {
+                            width: 100%;
+                        }
+
+                    }
+                }
+            }
+        }
+        .form-group {
+            textarea {
+                width: 50%!important;
+                border: solid grey 3px;
+                min-height: 120px;
             }
         }
     }

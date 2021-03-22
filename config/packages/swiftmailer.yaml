@@ -1,0 +1,7 @@
+swiftmailer:
+    transport: gmail
+    username: dev.souillat
+    password: Lueur87190!
+    host: localhost
+    spool: { type: 'memory' }
+

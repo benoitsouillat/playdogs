@@ -2,5 +2,51 @@
 
 
 {% block body %}
+<div class="postulation-page">
+    <div>
+        <p>Vous êtes toiletteur ou intéressé par le métier, vous souhaitez nous rejoindre ou en savoir plus sur notre métier <br/> N'hésitez pas à nous laisser votre candidature, nous vous répondrons le plus rapidement possible.</p>
+    </div>
+
+{{ form_start(form) }}
+
+{% if not form.vars.valid %}
+    <ul class="alert alert-danger">
+        {% for error in form.vars.errors %}
+            <li>{{error.message}}</li>
+        {% endfor %}
+        {% for child in form.children %}
+            {% if child.vars.errors is defined %}
+                {% for error in child.vars.errors %}
+                    <li>{{error.message}} </li>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{{ form_row(form.firstname, {'label': 'Prénom', 'attr': {
+    'placeholder' : 'Entrez votre prénom'
+}}) }}
+{{ form_row(form.lastname, {'label': 'Nom', 'attr': {
+    'placeholder' : 'Entrez votre nom'
+}}) }}
+{{ form_row(form.email, {'label': 'Email', 'attr': {
+    'placeholder' : 'Votre adresse email'
+}}) }}
+{{ form_row(form.tel, {'label': 'Mobile', 'attr': {
+    'placeholder' : 'Votre numéro de téléphone'
+}}) }}
+{{ form_row(form.message, {'label': 'Message', 'attr': {
+    'placeholder' : 'Laissez nous votre message !'
+}}) }}
+
+
+<button type="submit" class="btn">Envoyer !</button>
+
+
+
+{{ form_end(form) }}
+
+</div>
 
 {% endblock %}

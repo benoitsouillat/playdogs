@@ -2,19 +2,21 @@
 
 {% block body %}
 
-
 <div class="manage__add">
 {{ form_start(form, {'attr': {'class': 'price'}}) }}
 
-{{ form_row(form.race) }}
-{{ form_row(form.tonte) }}
-{{ form_row(form.coupe) }}
-{{ form_row(form.epilation) }}
-{{ form_row(form.bain) }}
-<button class="btn" type="submit">Valider le prix</button>
-</div>
+    {{ form_row(form.race) }}
+    {{ form_row(form.tonte) }}
+    {{ form_row(form.coupe) }}
+    {{ form_row(form.epilation) }}
+    {{ form_row(form.bain) }}
+    <button class="btn" type="submit">Valider le prix</button>
 
 {{ form_end(form) }}
+    <div>
+        <a class="btn" href="{{ path('admin_admin')}}" >Retour à l'administration</a>
+    </div>
+</div>
 
 <div class="price-container">
     <table class="price-table">
@@ -39,8 +41,9 @@
                 <td>{{ value.coupe }} €</td>
                 <td>{{ value.epilation }} € </td>
                 <td>{{ value.bain }} € / Heure </td>
+                <td><a href="{{ path('admin_delete_price', {'id': value.id}) }}" class="btn-point"> X </a>
+                </td>
             </tr>
-
             {% endfor %}
         </tbody>
     </table>

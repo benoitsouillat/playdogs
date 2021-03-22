@@ -4,7 +4,7 @@
     {% if app.user %}
 <section class="d-flex flex-column align-items-center">
 
-<h4>Résultat de : {{ dog.name }}</h4>
+<h4>Résultat de : {{ dog.id }}</h4>
     <div>
         <a href="{{ path('dog_create') }}" class="btn">Ajouter un chien</a>
         <a href="{{ path('manage') }}" class="btn">Revenir à la liste</a>

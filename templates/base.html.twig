@@ -33,7 +33,7 @@
                         {% if app.user %}
                         <section>
                             <h6>Connecté : {{ app.user.username }}</h6>
-                            {% if app.request.get('_route') == 'search' and is_granted('ROLE_ADMIN') %}
+                            {% if app.request.get('_route') == 'edit_dog' and is_granted('ROLE_ADMIN') %}
                             <a href="{{path('admin_admin')}}" >Administration</a>
                             {% elseif app.request.get('_route') == 'manage' and is_granted('ROLE_ADMIN')  %}
                             <a href="{{path('admin_admin')}}" >Administration</a>

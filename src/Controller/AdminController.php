@@ -3,12 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Price;
+use App\Entity\Candidates;
 use App\Form\AddPriceType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 
 /**
@@ -33,6 +35,11 @@ class AdminController extends AbstractController
     public function addPrice(Price $price = null, EntityManagerInterface $manager, Request $request): Response
     {
 
+        if(!$price)
+        {
+            $price = new Price();
+        }
+
 
         $form = $this->createForm(AddPriceType::class, $price);
 
@@ -56,4 +63,47 @@ class AdminController extends AbstractController
         ]);
     
     }
+
+    /**
+     * @Route ("/price/delete/{id}", name="delete_price")
+     * @ParamConverter("id", options={"id" = "price_id"})
+     */
+    public function deletePrice(Price $price, EntityManagerInterface $manager)
+    {
+        $manager->remove($price);
+        $manager->flush();
+
+        return $this->redirectToRoute('admin_price');
+
+    }
+
+    /**
+     * @Route("/candidate", name="candidate")
+     */
+    public function showCandidate()
+    {
+        $repo = $this->getDoctrine()->getRepository(Candidates::class);
+        $candidates = $repo->findBy(
+            array(),
+            array('created_at' => 'DESC')
+        );
+
+        return $this->render('administration/candidate.html.twig', [
+            'title' => 'Les Candidatures',
+            'candidates' => $candidates,
+        ]);
+    }
+    /**
+     * @Route ("/candidate/delete/{id}", name="delete_candidate")
+     * @ParamConverter("id", options={"id" = "candidates_id"})
+     */
+    public function deleteCandidate(EntityManagerInterface $manager, Candidates $candidates): Response
+    {
+        $manager->remove($candidates);
+        $manager->flush();
+
+        return $this->redirectToRoute('admin_candidate');
+
+    }
+
 }

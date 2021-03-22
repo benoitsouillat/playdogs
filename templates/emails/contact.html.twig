@@ -1,0 +1,26 @@
+
+{% block body %}
+
+<div>
+    <ul>
+        <li>
+        <h3 style="color: red; font-weight: bold;">{{ contact.firstname }} {{ contact.lastname}} a envoyé un message depuis le site : </h3>
+        </li>
+        <li>
+            <p style="font-style: italic">{{ contact.message }}</p>
+        </li>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+        <li>
+            <ul>
+                <li>Email : {{ contact.email }}</li>
+                <li>Téléphone : {{ contact.tel }}</li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+
+{% endblock %}

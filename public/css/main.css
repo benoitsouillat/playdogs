@@ -274,6 +274,329 @@ footer {
   font-weight: bold;
 }
 
+.btn-point {
+  color: white;
+  background-color: red;
+  padding: 5px;
+}
+
+.rdv-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.rdv-content > div {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.rdv-content .rdv-salon {
+  margin-top: 30px;
+  padding: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.rdv-content .rdv-salon h4 {
+  font-size: 1.5rem;
+  text-decoration: underline;
+  text-decoration-thickness: 7px;
+}
+
+.rdv-content .rdv-salon a {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.rdv-content .rdv-email {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-style: italic;
+}
+
+.rdv-content .rdv-email p {
+  width: 100%;
+  text-align: center;
+}
+
+.rdv-content .rdv-email p:nth-child(1) {
+  margin: 70px 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.contact-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contact-container form {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contact-container form > div {
+  margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.contact-container form > div > ul {
+  display: none;
+}
+
+.contact-container form label {
+  width: 25%;
+}
+
+.contact-container form input, .contact-container form textarea {
+  width: 70%;
+  border: grey solid 2px;
+  border-radius: 5px;
+  height: 32px;
+}
+
+.contact-container form textarea {
+  min-height: 80px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  margin: 10px !important;
+}
+
+.contact-container form .btn {
+  width: auto;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.contact-container .contact-field {
+  width: 30%;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+}
+
+.contact-container .contact-field img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 80%;
+  border-radius: 5%;
+  -webkit-box-shadow: #404040 3px 3px 3px;
+          box-shadow: #404040 3px 3px 3px;
+  margin: 20px;
+}
+
+.postulation-page {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.postulation-page > div {
+  margin: 30px 0;
+}
+
+.postulation-page form {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.postulation-page form > div {
+  margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.postulation-page form > div > ul {
+  display: none;
+}
+
+.postulation-page form label {
+  width: 25%;
+}
+
+.postulation-page form input, .postulation-page form textarea {
+  width: 70%;
+  border: grey solid 2px;
+  border-radius: 5px;
+  height: 32px;
+}
+
+.postulation-page form textarea {
+  min-height: 80px;
+}
+
+.postulation-page form .btn {
+  width: 40%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.admin-postul-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.admin-postul-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 75%;
+  padding: 15px;
+  margin: 30px;
+  border: solid 3px #abdcab;
+}
+
+.admin-postul-content h4 {
+  min-width: 200px;
+}
+
+.admin-postul-content .btn-delete {
+  width: 100%;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.admin-postul-content .btn-delete .btn {
+  background-color: red;
+  color: white;
+  font-size: 20px;
+  position: relative;
+  left: 75%;
+  padding: 5px;
+}
+
 #admin {
   margin-top: 50px;
   width: 100%;
@@ -351,21 +674,20 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   width: 100%;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .manage__add form {
-  width: 80%;
+  width: 60%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -379,6 +701,7 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 30px;
 }
 
 .manage__add form div {
@@ -397,11 +720,9 @@ footer {
 
 .manage__add form input {
   min-width: 300px;
-}
-
-.manage__add > div {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  min-height: 35px;
+  border: grey solid 2px;
+  border-radius: 2%;
 }
 
 .manage__add .price ul {
@@ -410,5 +731,62 @@ footer {
   font-size: 20px;
   text-decoration: underline;
   color: red;
+}
+
+.manage__add__info {
+  min-width: 30%;
+  padding-top: 50px;
+}
+
+.manage__add__info ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 20px;
+  width: 100%;
+  padding: 50px 0;
+}
+
+.manage__add__info ul li {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  line-height: 40px;
+}
+
+.manage__add__info ul li span {
+  font-weight: bold;
+  color: black;
+  font-style: italic;
+}
+
+.manage__add__info ul li:nth-child(5) span {
+  width: 100%;
+}
+
+.manage__add .form-group textarea {
+  width: 50% !important;
+  border: solid grey 3px;
+  min-height: 120px;
 }
 /*# sourceMappingURL=main.css.map */

@@ -2,29 +2,23 @@
 
 namespace App\Form;
 
-use App\Entity\ClientSearch;
+use App\Entity\Dog;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
-class ClientSearchType extends AbstractType
+class ClientType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('dogName', TextType::class, [
-                'required' => false,
+            ->add('name',  TextType::class, [
+                'required' => true,
                 'label' => false,
                 'attr' => [
                     'placeholder' => "Nom du Chien",
-                ]
-            ])
-            ->add('owner',  TextType::class, [
-                'required' => false,
-                'label' => false,
-                'attr' => [
-                    'placeholder' => "Nom du Client",
                 ]
             ])
             ->add('race',  TextType::class, [
@@ -33,14 +27,27 @@ class ClientSearchType extends AbstractType
                 'attr' => [
                     'placeholder' => "Race du Chien",
                 ]
-            ]);
+            ])
+            ->add('owner',  TextType::class, [
+                'required' => true,
+                'label' => false,
+                'attr' => [
+                    'placeholder' => "Propriétaire du Chien",
+                ]
+            ])
+            ->add('description', TextareaType::class, [
+                'required' => false,
+            ])
+            ->add('tel', TextType::class, [
+                'required' => false,
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => ClientSearch::class,
-            'method' => 'get',
+            'data_class' => Dog::class,
         ]);
     }
 }
