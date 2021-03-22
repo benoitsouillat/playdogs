@@ -22,20 +22,19 @@ class UserFixtures extends Fixture
 
         
         $user = new User();
-        $encoded = $this->encoder->encodePassword($user, 'mdp');
+        $encoded = $this->encoder->encodePassword($user, 'Playdogs');
         $user->setUsername('Sabine')
             ->setPassword($encoded)
             ->setRoles(['ROLE_ADMIN']);
         // $product = new Product();
         // $manager->persist($product);
 
-        $userSimple = new User();
-        $userSimple->setUsername('Toiletteur')
-            ->setPassword($encoded)
-            ->setRoles(['ROLE_USER']);
+        //$userSimple = new User();
+        //$userSimple->setUsername('Toiletteur')
+    //  ->setPassword($encoded)
+//      ->setRoles(['ROLE_USER']);
 
         $manager->persist($user);
-        $manager->persist($userSimple);
         $manager->flush();
     }
 }
