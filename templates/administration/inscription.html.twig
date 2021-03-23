@@ -2,7 +2,12 @@
 
 {% block body %} 
 
-<p>Inscription close !!! </p>
+    {{form_start(form)}}
+
+
+    <button type="submit" class="btn">Enregistrer</button>
+
+    {{form_end(form)}}
 
 
 {% endblock %}
