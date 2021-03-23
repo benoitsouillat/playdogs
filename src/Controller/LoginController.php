@@ -2,10 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
+use App\Form\InscriptionType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class LoginController extends AbstractController
 {
@@ -24,9 +28,25 @@ class LoginController extends AbstractController
     /**
      * @Route("/inscription", name="inscription")
      */
-    public function inscription(): Response
+    public function inscription(UserPasswordEncoderInterface $encoder, EntityManagerInterface $manager, Request $request): Response
     {
-        //Si inscriptions nécessaires pour sécuriser les mdp
+        $user = new User();
+
+        $form = $this->createForm(InscriptionType::class, $user);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $encoded = $encoder->encodePassword($user, $user->getPassword());
+                $user->setPassword($encoded);
+
+            $manager->persist($user);
+            $manager->flush();
+        }
+
+        return $this->render('administration/inscription.html.twig', [
+            'title' => 'Inscrire',
+            'form' => $form->createView(),
+        ]);
     }
 
     /**
