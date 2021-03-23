@@ -22,8 +22,14 @@ class UserFixtures extends Fixture
 
         
         $user = new User();
-        $encoded = $this->encoder->encodePassword($user, 'Playdogs');
+        $encoded = $this->encoder->encodePassword($user, 'mdp');
         $user->setUsername('Sabine')
+            ->setPassword($encoded)
+            ->setRoles(['ROLE_ADMIN']);
+
+        $user1 = new User();
+        $encoded = $this->encoder->encodePassword($user1, 'mdp');
+        $user1->setUsername('Benoit')
             ->setPassword($encoded)
             ->setRoles(['ROLE_ADMIN']);
         // $product = new Product();
@@ -35,6 +41,7 @@ class UserFixtures extends Fixture
 //      ->setRoles(['ROLE_USER']);
 
         $manager->persist($user);
+        $manager->persist($user1);
         $manager->flush();
     }
 }
