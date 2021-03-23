@@ -26,7 +26,6 @@ class LoginController extends AbstractController
     }
 
     /**
-     * @Route("/inscription", name="inscription")
      * @Route("/admin/inscription", name="admin_inscription")
      */
     public function inscription(UserPasswordEncoderInterface $encoder, EntityManagerInterface $manager, Request $request): Response
