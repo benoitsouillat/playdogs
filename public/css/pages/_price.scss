@@ -20,10 +20,11 @@
         max-width: 25%;
         max-height: 200px;
         padding: 20px;
-        margin: 20px;
+        margin: 10px;
+        margin-top: 30px;
         box-sizing: border-box;
         object-fit: cover;
-        border: solid 2px lighten($second-color, 50);
+        border: solid 3px lighten($second-color, 50);
         border-radius: 20px;
         box-shadow: 3px 3px 15px darken($fourth-color, 45);
 
@@ -39,11 +40,6 @@
     justify-content: space-around;
     align-items: flex-start;
     flex-wrap: wrap;
-
-    &:nth-child(2n)
-    {
-        //flex-direction: row-reverse;
-    }
 }
 
 .price-table {
@@ -109,4 +105,38 @@
     color: white;
     background-color: red;
     padding: 5px;
+}
+
+@media screen and (max-width: 1200px)
+{
+    .price-container {
+        .price-text-right {
+            min-width: 240px;
+            max-height: unset;
+            height: auto;
+        }
+    }
+}
+
+@media screen and (max-width: 900px)
+{
+    .price-container {
+        .price-row {
+            width: 100%;
+            .price-table {
+                min-width: unset;
+                max-width: unset;
+                width: 100%;
+                margin: 0 20px;
+                padding: 0;
+            }
+            .price-text-right {
+                min-width: unset;
+                max-width: unset;
+                width: 100%;
+                margin: 30px 5%;
+                margin-bottom: 50px;
+            }
+        }
+    }
 }
