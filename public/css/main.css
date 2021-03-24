@@ -232,26 +232,32 @@ footer {
 
 @media all and (max-width: 550px) {
   nav ul {
+    display: none;
     height: unset;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    z-index: 1;
   }
   nav ul li {
+    z-index: 1;
     width: 130px;
     margin-right: 10px;
     text-align: center;
   }
   nav ul li a {
+    z-index: 1;
     padding: 0;
+    width: 130px;
   }
   nav .menu-btn {
+    z-index: 1;
     text-align: center;
     padding: 0;
     display: block;
     width: 70px;
-    height: 50px;
+    height: 40px;
     position: relative;
     left: calc(100% - 80px);
   }
