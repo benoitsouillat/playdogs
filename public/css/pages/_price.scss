@@ -1,40 +1,105 @@
 
 .price-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 
-    > div
+    > .price-text-center
         {
-            width: 60%; 
+            width: 60%;
+            order: 300;
         > p {
             margin-top: 40px;
             text-align: center;
         }
     }
+    .price-text-right
+    {
+        max-width: 25%;
+        max-height: 200px;
+        padding: 20px;
+        margin: 20px;
+        box-sizing: border-box;
+        object-fit: cover;
+        border: solid 2px lighten($second-color, 50);
+        border-radius: 20px;
+        box-shadow: 3px 3px 15px darken($fourth-color, 45);
+
+        > p {
+            text-align: justify;
+        }
+    }
+}
+.price-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    &:nth-child(2n)
+    {
+        //flex-direction: row-reverse;
+    }
 }
 
 .price-table {
 
-    width: 80%;
+    width: 65%;
+    min-width: 500px;
+    margin-top: 30px;
+    margin-left: 30px;
 
     thead {
         background-color: darken($fourth-color, 5);
         font-weight: bold;
         text-align: center;
         tr {
-            border: solid 1px $second-color;
+            border: solid 1px lighten($second-color, 55);
+            th {
+                font-size: 16px;
+                &:nth-child(1)
+                {
+                    font-style: italic;
+                }
+            }
         }
     }
     tbody {
         width: 100%;
 
+
         tr {
             height: 30px;
+            border: solid 1px lighten($second-color, 70);
+            border-top: unset;
+            border-right: unset;
 
             td {
                 text-align: center;
                 font-weight: bold;
+                border: solid 1px lighten($second-color, 70);
+                border-left: unset;
+            }
+
+            &:nth-child(2n)
+            {
+                background-color: darken($first-color, 15);
+            }
+        }
+        .cat {
+            border-bottom: 1px solid $second-color;
+            border-top: 1px solid $second-color;
+            &:nth-child(1)
+            {
+                border-left: 1px solid $second-color;
+            }
+            &:nth-child(2)
+            {
+                border-right: 1px solid $second-color;
             }
         }
     }

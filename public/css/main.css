@@ -229,26 +229,73 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-.price-container > div {
+.price-container > .price-text-center {
   width: 60%;
+  -webkit-box-ordinal-group: 301;
+      -ms-flex-order: 300;
+          order: 300;
 }
 
-.price-container > div > p {
+.price-container > .price-text-center > p {
   margin-top: 40px;
   text-align: center;
 }
 
+.price-container .price-text-right {
+  max-width: 25%;
+  max-height: 200px;
+  padding: 20px;
+  margin: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: solid 2px gray;
+  border-radius: 20px;
+  -webkit-box-shadow: 3px 3px 15px #307230;
+          box-shadow: 3px 3px 15px #307230;
+}
+
+.price-container .price-text-right > p {
+  text-align: justify;
+}
+
+.price-row {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .price-table {
-  width: 80%;
+  width: 65%;
+  min-width: 500px;
+  margin-top: 30px;
+  margin-left: 30px;
 }
 
 .price-table thead {
@@ -258,7 +305,15 @@ footer {
 }
 
 .price-table thead tr {
-  border: solid 1px #000;
+  border: solid 1px #8c8c8c;
+}
+
+.price-table thead tr th {
+  font-size: 16px;
+}
+
+.price-table thead tr th:nth-child(1) {
+  font-style: italic;
 }
 
 .price-table tbody {
@@ -267,11 +322,33 @@ footer {
 
 .price-table tbody tr {
   height: 30px;
+  border: solid 1px #b3b3b3;
+  border-top: unset;
+  border-right: unset;
 }
 
 .price-table tbody tr td {
   text-align: center;
   font-weight: bold;
+  border: solid 1px #b3b3b3;
+  border-left: unset;
+}
+
+.price-table tbody tr:nth-child(2n) {
+  background-color: #d9d9d9;
+}
+
+.price-table tbody .cat {
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #000;
+}
+
+.price-table tbody .cat:nth-child(1) {
+  border-left: 1px solid #000;
+}
+
+.price-table tbody .cat:nth-child(2) {
+  border-right: 1px solid #000;
 }
 
 .btn-point {
