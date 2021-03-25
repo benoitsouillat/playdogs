@@ -42,3 +42,16 @@ window.addEventListener('resize', function () {
 });
 
 menuButton.addEventListener("click", toggleMenu);
+
+
+const searching = () => {
+    console.log('recherche');
+}
+
+
+try {
+    let search = document.getElementById('search-bar');
+    search.addEventListener("keyup", searching);
+}
+
+catch {}
