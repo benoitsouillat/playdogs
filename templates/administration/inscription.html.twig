@@ -2,12 +2,41 @@
 
 {% block body %} 
 
-    {{form_start(form)}}
+<div class="manage">
+    <div class="manage__option">
+        <a class="btn" href="{{ path('admin_admin')}}" >Retour à l'administration</a>
+    </div>
+    <div class="manage__list">
+        <h3>Liste des utilisateurs</h3>
+
+        <ul>
+            {% for list in lists %}
+                <li> {{list.username}} =>
+                    {% if list.roles[0] == 'ROLE_ADMIN' %}
+                    Administrateur
+                    {% elseif list.roles[0] == 'ROLE_USER' %}
+                    Toiletteur
+                    {% endif %}
+                </li>
+
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="manage__add">
+
+        {{form_start(form)}}
+
+        <h2>Attention !! Sécurité en danger !! Ne pas faire n'importe quoi sur cette page !!</h2>
 
 
-    <button type="submit" class="btn">Enregistrer</button>
+            {{ form_row(form.username)}}
+            {{ form_row(form.password)}}
+            {{ form_row(form.roles)}}
 
-    {{form_end(form)}}
 
+        <button type="submit" class="btn">Enregistrer</button>
 
+        {{form_end(form)}}
+    </div>
+</div>
 {% endblock %}

@@ -587,6 +587,11 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding: 40px;
+  border: solid 2px #a6a6a6;
+  -webkit-box-shadow: 2px 2px 10px #595959;
+          box-shadow: 2px 2px 10px #595959;
+  border-radius: 20px;
 }
 
 .contact-container form > div {
@@ -614,7 +619,7 @@ footer {
   width: 70%;
   border: grey solid 2px;
   border-radius: 5px;
-  height: 32px;
+  min-height: 32px;
 }
 
 .contact-container form textarea {
@@ -980,5 +985,93 @@ footer {
   width: 50% !important;
   border: solid grey 3px;
   min-height: 120px;
+}
+
+@media all and (max-width: 700px) {
+  .manage {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .manage__add {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .manage__add form {
+    max-width: unset;
+    min-width: unset;
+    width: 100%;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .manage__add__info {
+    padding-top: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    max-width: unset;
+    min-width: unset;
+    width: 100%;
+  }
+  .manage__add__info ul {
+    padding: 0;
+  }
+  .manage__add__info a {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .manage__add .form-group textarea {
+    width: 80% !important;
+  }
+  .manage .manage__option {
+    width: 60%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    text-align: center;
+  }
+  .manage .manage__option input, .manage .manage__option h3 {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .manage__list ul {
+    width: 90%;
+    font-weight: bold;
+    padding: 0;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+  }
+  .manage__list ul li {
+    border-bottom: solid 1px gray;
+    font-size: 16px;
+    text-align: center;
+  }
 }
 /*# sourceMappingURL=main.css.map */

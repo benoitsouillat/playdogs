@@ -30,6 +30,11 @@ class LoginController extends AbstractController
      */
     public function inscription(UserPasswordEncoderInterface $encoder, EntityManagerInterface $manager, Request $request): Response
     {
+
+        $repo = $this->getDoctrine()->getRepository(User::class);
+        $lists = $repo->findAll();
+
+
         $user = new User();
 
         $form = $this->createForm(InscriptionType::class, $user);
@@ -46,6 +51,7 @@ class LoginController extends AbstractController
         return $this->render('administration/inscription.html.twig', [
             'title' => 'Inscrire',
             'form' => $form->createView(),
+            'lists' => $lists,
         ]);
     }
 
