@@ -927,6 +927,14 @@ footer {
   border-radius: 2%;
 }
 
+.manage__add form .vich-image div {
+  display: none;
+}
+
+.manage__add form .vich-image a {
+  display: none;
+}
+
 .manage__add .price ul {
   padding: 0;
   font-weight: bold;
@@ -937,6 +945,7 @@ footer {
 
 .manage__add__info {
   min-width: 30%;
+  max-width: 50%;
   padding-top: 50px;
 }
 
@@ -983,6 +992,12 @@ footer {
 }
 
 .manage__add__info ul li:nth-child(5) span {
+  width: 100%;
+}
+
+.manage__add__info ul li img {
+  -o-object-fit: cover;
+     object-fit: cover;
   width: 100%;
 }
 

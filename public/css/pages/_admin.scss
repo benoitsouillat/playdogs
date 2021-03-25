@@ -74,6 +74,14 @@
                 border: grey solid 2px;
                 border-radius: 2%;
             }
+            .vich-image {
+                div {
+                    display: none;
+                }
+                a {
+                    display: none;
+                }
+            }
         }
         .price {
             ul {
@@ -86,6 +94,7 @@
         }
         &__info {
             min-width: 30%;
+            max-width: 50%;
             padding-top: 50px;
             ul {
                 display: flex;
@@ -113,6 +122,10 @@
                             width: 100%;
                         }
 
+                    }
+                    img {
+                        object-fit: cover;
+                        width: 100%;
                     }
                 }
             }

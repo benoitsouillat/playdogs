@@ -21,6 +21,10 @@
     <div class="form-group">
         {{ form_row(formDog.description, {'label': 'Description','attr': {'placeholder': 'Description, Détails ou Prestation habituelle', 'class': 'form-control w-25'}}) }}
     </div>
+    <div class="form-group">
+        {{ form_row(formDog.imageFile, {'label': 'Image','attr': {'class': 'form-control w-25'}}) }}
+    </div>
+
 
     {% if app.request.get('_route') == "dog_create" %}
     <button type="submit" class="btn">Ajouter le chien</button>
@@ -43,6 +47,7 @@
             <li>M : <span>{{ dog.owner }}</span></li>
             <li>N° : <span>{{ dog.tel }}</span></li>
             <li>Description :<br/> <span>{{ dog.description }}</span></li>
+            <li><img src="/img/client/{{dog.filename}}" /></li>
             <br/>
         </ul>
 

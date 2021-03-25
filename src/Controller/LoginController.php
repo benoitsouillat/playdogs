@@ -18,8 +18,6 @@ class LoginController extends AbstractController
      */
     public function login(Request $request): Response
     {
-
-
         return $this->render('administration/login.html.twig',[
             'title' => 'Se connecter',
         ]);

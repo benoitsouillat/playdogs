@@ -4,9 +4,14 @@ namespace App\Entity;
 
 use App\Repository\DogRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=DogRepository::class)
+ * @Vich\Uploadable()
  */
 class Dog
 {
@@ -46,6 +51,24 @@ class Dog
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $tel;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $filename;
+
+    /**
+     * @Vich\UploadableField(mapping="property_image", fileNameProperty="filename")
+     * @var File|null
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var \DateTime
+     */
+    private $updatedAt;
 
     public function getId(): ?int
     {
@@ -120,6 +143,45 @@ class Dog
     public function setTel(?string $tel): self
     {
         $this->tel = $tel;
+
+        return $this;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageFile(?File $imageFile): self
+    {
+        $this->imageFile = $imageFile;
+        if ($this->imageFile instanceof UploadedFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
+
+        return $this;
+    }
+
+    public function getFilename(): ?string
+    {
+        return $this->filename;
+    }
+
+    public function setFilename(?string $filename): self
+    {
+        $this->filename = $filename;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

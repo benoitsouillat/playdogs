@@ -40,8 +40,6 @@ class ManageController extends AbstractController
 
     public function createDog(EntityManagerInterface $manager, Request $request, Dog $dog = null): Response {
 
-
-        
         if(!$dog)
         {
             $dog = new Dog();
