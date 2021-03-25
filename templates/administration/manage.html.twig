@@ -19,8 +19,8 @@
             <h2>Liste des clients :</h2>
             <ul>
                 {% for dog in dogs %}
-                <li> -
-                    <a href="/manage/{{ dog.id }}" >{{ dog.name }} </a>, est un {{ dog.race }} appartenant à M. <a href="/manage/{{ dog.id }}" >{{ dog.owner }} </a></li>
+                <li class="client"> -
+                    <a href="/manage/{{ dog.id }}" >{{ dog.name }} </a> : {{ dog.race }} à M. <a href="/manage/{{ dog.id }}" >{{ dog.owner }} </a></li>
                 {% endfor %}
             </ul>
         </section>

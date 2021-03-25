@@ -44,14 +44,29 @@ window.addEventListener('resize', function () {
 menuButton.addEventListener("click", toggleMenu);
 
 
-const searching = () => {
-    console.log('recherche');
+const searching = (e, list) => {
+    let value = e.target.value; // Get the search value
+    console.log('recherche' + value + list);
 }
 
 
 try {
+    let list = document.getElementsByClassName('client');
     let search = document.getElementById('search-bar');
-    search.addEventListener("keyup", searching);
+    let arr = Array.from(list); // Converti l'HTML collection en Array
+
+    search.addEventListener("keyup", function () {
+        let value = search.value.toLowerCase(); // Get the search value
+        console.log(value);
+
+        arr.forEach(elm => {
+            elm.classList.remove('hide'); // Reinitialise le tableau de <li>
+            if (!(elm.textContent.toLowerCase().indexOf(value) >= 0))
+            {
+                elm.classList.add('hide'); // Cache tous les <li> qui ne correspondent pas
+            }
+        });
+    });
 }
 
 catch {}

@@ -123,6 +123,11 @@ footer {
   text-decoration-thickness: 15px;
 }
 
+.hide {
+  display: none;
+  overflow: hidden;
+}
+
 .head-title {
   display: -webkit-box;
   display: -ms-flexbox;

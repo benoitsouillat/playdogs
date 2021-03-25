@@ -90,6 +90,10 @@ footer {
     text-decoration-thickness: 15px;
 
 }
+.hide {
+    display: none;
+    overflow: hidden;
+}
 .head-title {
     display: flex;
     flex-direction: column;
