@@ -66,7 +66,7 @@ class ManageController extends AbstractController
         return $this->render('administration/create.html.twig', [
             'formDog' => $form->createView(),
             'title' => 'Gérer un chien',
-            'dog' => $search
+            'dog' => $search,
         ]);
     }
 

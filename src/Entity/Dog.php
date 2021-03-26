@@ -60,6 +60,9 @@ class Dog
 
     /**
      * @Vich\UploadableField(mapping="property_image", fileNameProperty="filename")
+     * @Assert\File(
+     *      maxSize = "15M"
+     * )
      * @var File|null
      */
     private $imageFile;
