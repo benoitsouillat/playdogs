@@ -65,5 +65,3 @@ DirectoryIndex index.php
     </IfModule>
 </IfModule>
 
-php_value upload_max_filesize 15M
-php_value post_max_file 15M
