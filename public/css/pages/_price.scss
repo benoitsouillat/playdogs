@@ -140,3 +140,17 @@
         }
     }
 }
+
+@media screen and (max-width: 570px)
+{
+    .price-table {
+        thead {
+            tr {
+                th {
+                    border: 1px solid black;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

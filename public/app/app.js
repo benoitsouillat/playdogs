@@ -31,10 +31,10 @@ let theTimer;
 window.addEventListener('resize', function () {
     clearTimeout(theTimer);
     theTimer = setTimeout(function () {
-        if (window.innerWidth > 550) {
+        if (window.innerWidth > 600) {
             menuList.style.display = "flex"
         }
-        else if (window.innerWidth <= 550) {
+        else if (window.innerWidth <= 600) {
             menuList.style.display = "none";
             menuButton.textContent = " Menu ";
         }
