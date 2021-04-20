@@ -29,9 +29,19 @@ class ManageController extends AbstractController
         return $this->render('administration/manage.html.twig', [
             'title' => 'Gestion des clients',
             'dogs' => $dogs,
-        ]);
-    }
+            ]);
+        }
+        
+    /**
+     * @Route ("/manage/delete/{id}", name="dog_delete")
+     */
+    public function deleteClient(EntityManagerInterface $manager, Dog $dog): Response
+    {
+        $manager->remove($dog);
+        $manager->flush();
 
+        return $this->redirectToRoute('manage');
+    }
 
     /**
      * @Route("/manage/new", name="dog_create")
@@ -60,7 +70,7 @@ class ManageController extends AbstractController
             $manager->persist($dog);
             $manager->flush();
 
-            return $this->redirectToRoute('dog_edit', ['id' => $dog->getId()]);
+            return $this->redirectToRoute('manage');
         }
 
         return $this->render('administration/create.html.twig', [
@@ -70,8 +80,6 @@ class ManageController extends AbstractController
         ]);
     }
 
-
-    
     /**
      * @Route("/search/{id}", name="search")
      */
@@ -85,5 +93,6 @@ class ManageController extends AbstractController
             'dog' => $dog
         ]);
     }
+
 
 }

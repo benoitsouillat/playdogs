@@ -25,27 +25,35 @@
         {{ form_row(formDog.imageFile, {'label': 'Image','attr': {'class': 'form-control w-25'}}) }}
     </div>
 
+    <div>
 
-    {% if app.request.get('_route') == "dog_create" %}
-    <button type="submit" class="btn">Ajouter le chien</button>
-    {% elseif app.request.get('_route') == "dog_edit" %}
-    <button type="submit" class="btn">Editer la fiche</button>
+        {% if app.request.get('_route') == "dog_create" %}
+        <button type="submit" class="btn">Ajouter le chien</button>
+        {% elseif app.request.get('_route') == "dog_edit" %}
+        <button type="submit" class="btn">Editer la fiche</button>
 
-    {% else %}
-    <button type="submit" class="btn">Valider le chien</button>
+        {% else %}
+        <button type="submit" class="btn">Valider le chien</button>
 
-    {% endif %}
+        {% endif %}
 
+        {% if app.user and is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('dog_delete', {'id': dog.id }) }}" class="btn">Supprimer le chien</a>
+        {% endif %}
 
-{{ form_end(formDog) }}
+    </div>
+    
+    
+    {{ form_end(formDog) }}
+    
 
     <div class="manage__add__info">
         {% if app.request.get('_route') == 'dog_edit' %}
         <ul>
             <li>Nom du chien : <span>{{ dog.name }}</span></li>
             <li>Race : <span>{{ dog.race }}</span></li>
-            <li>M : <span>{{ dog.owner }}</span></li>
-            <li>N° : <span>{{ dog.tel }}</span></li>
+            <li>M ou Mme : <span>{{ dog.owner }}</span></li>
+            <li>N° Téléphone : <span>{{ dog.tel }}</span></li>
             <li>Description :<br/> <span>{{ dog.description }}</span></li>
             <li><img src="/img/client/{{dog.filename}}" /></li>
             <br/>

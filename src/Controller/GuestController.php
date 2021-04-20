@@ -22,7 +22,7 @@ class GuestController extends AbstractController
     public function home(): Response
     {
         return $this->render('playdogs/home.html.twig', [
-            'title' => 'Bienvenue sur le site Playdog\'s ',
+            'title' => 'Bienvenue sur Playdog\'s ',
         ]);
     }
     /**

@@ -6,6 +6,7 @@
     align-items: center;
 
     form {
+        min-width: 480px;
         width: 50%;
         display: flex;
         flex-direction: column;
@@ -47,7 +48,9 @@
         }
     }
     .contact-field {
+        min-width: 300px;
         width: 30%;
+        margin: 0 30px;
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -62,5 +65,65 @@
             box-shadow: lighten($second-color ,25) 3px 3px 3px;
             margin: 20px;
         }
+    }
+}
+
+@media all and (max-width: 1000px) {
+    .contact-container {
+        flex-wrap: wrap;
+        
+        form {
+            margin-bottom: 35px;
+        }
+
+        .contact-field {
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 80%;
+            img {
+                max-width: 250px;
+            }
+
+            section {
+                width: 45%;
+
+                &:nth-child(4)
+                {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 500px) {
+    .contact-container {
+        form {
+            min-width: unset;
+            width: unset;
+        }
+    }
+}
+
+@media all and (max-width: 370px) {
+    .contact-container {
+        form {
+            min-width: unset;
+            width: unset;
+
+            > div {
+                flex-direction: column;
+                justify-content: flex-start;
+                > label, input {
+                    width: 100%;
+                }
+            }
+            textarea {
+                margin: unset !important;
+                margin-top: 20px !important;
+                margin-bottom: 20px !important;
+            }
+        }
+
     }
 }

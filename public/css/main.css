@@ -295,6 +295,12 @@ footer {
   }
 }
 
+@media all and (max-width: 385px) {
+  .underline {
+    font-size: 1.3em;
+  }
+}
+
 /* Pages */
 #accueil {
   display: -webkit-box;
@@ -498,7 +504,8 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
+  width: calc(100%-30px);
+  margin: 15px;
 }
 
 .rdv-content > div {
@@ -517,6 +524,10 @@ footer {
           align-items: center;
 }
 
+.rdv-content > h6, .rdv-content p {
+  text-align: center;
+}
+
 .rdv-content .rdv-salon {
   margin-top: 30px;
   padding: 30px;
@@ -533,12 +544,13 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  min-width: 290px;
 }
 
 .rdv-content .rdv-salon h4 {
   font-size: 1.5rem;
   text-decoration: underline;
-  text-decoration-thickness: 7px;
+  text-decoration-thickness: 5px;
 }
 
 .rdv-content .rdv-salon a {
@@ -575,6 +587,28 @@ footer {
   font-weight: bold;
 }
 
+@media all and (max-width: 800px) {
+  .rdv-content > h6, .rdv-content p {
+    margin: 10px 100px;
+  }
+  .rdv-content > div {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .rdv-content .rdv-salon {
+    border-top: 2px solid #000;
+  }
+}
+
+@media all and (max-width: 550px) {
+  .rdv-content > h6, .rdv-content p {
+    margin: 10px 30px;
+  }
+}
+
 .contact-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -591,6 +625,7 @@ footer {
 }
 
 .contact-container form {
+  min-width: 480px;
   width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -650,7 +685,9 @@ footer {
 }
 
 .contact-container .contact-field {
+  min-width: 300px;
   width: 30%;
+  margin: 0 30px;
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -677,6 +714,65 @@ footer {
   margin: 20px;
 }
 
+@media all and (max-width: 1000px) {
+  .contact-container {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .contact-container form {
+    margin-bottom: 35px;
+  }
+  .contact-container .contact-field {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 80%;
+  }
+  .contact-container .contact-field img {
+    max-width: 250px;
+  }
+  .contact-container .contact-field section {
+    width: 45%;
+  }
+  .contact-container .contact-field section:nth-child(4) {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .contact-container form {
+    min-width: unset;
+    width: unset;
+  }
+}
+
+@media all and (max-width: 370px) {
+  .contact-container form {
+    min-width: unset;
+    width: unset;
+  }
+  .contact-container form > div {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .contact-container form > div > label, .contact-container form > div input {
+    width: 100%;
+  }
+  .contact-container form textarea {
+    margin: unset !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
+}
+
 .postulation-page {
   width: 100%;
   display: -webkit-box;
@@ -695,7 +791,11 @@ footer {
 }
 
 .postulation-page > div {
-  margin: 30px 0;
+  margin: 30px 50px;
+}
+
+.postulation-page > div p {
+  text-align: center;
 }
 
 .postulation-page form {
@@ -804,6 +904,12 @@ footer {
   position: relative;
   left: 75%;
   padding: 5px;
+}
+
+@media all and (max-width: 800px) {
+  .postulation-page form {
+    width: 75%;
+  }
 }
 
 #admin {

@@ -6,7 +6,10 @@
     align-items: center;
 
     > div {
-        margin: 30px 0;
+        margin: 30px 50px;
+        p {
+            text-align: center;
+        }
     }
 
     form {
@@ -81,6 +84,16 @@
 
             left: 75%;
             padding: 5px;
+        }
+    }
+
+}
+
+@media all and (max-width: 800px) {
+
+    .postulation-page {
+        form {
+            width: 75%;
         }
     }
 

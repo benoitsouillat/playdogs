@@ -3,7 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: calc(100%-30px);
+    margin: 15px;
 
     > div {
         width: 80%;
@@ -12,6 +13,9 @@
         justify-content: space-around;
         align-items: center;
     }
+    > h6, p {
+        text-align: center;
+    }
     .rdv-salon {
         margin-top: 30px;
         padding: 30px;
@@ -19,10 +23,11 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        min-width: 290px;
         h4 {
             font-size: 1.5rem;
             text-decoration: underline;
-            text-decoration-thickness: 7px;
+            text-decoration-thickness: 5px;
         }
         a {
             margin-top: 20px;
@@ -50,3 +55,31 @@
         
     }
 }
+
+@media all and (max-width: 800px)
+{
+    .rdv-content {
+
+        > h6, p {
+            margin: 10px 100px;
+        }
+        > div {
+            width: 100%;
+            flex-direction: column;
+        }
+        .rdv-salon {
+            border-top: 2px solid $second-color;
+        }
+    }
+}
+
+
+ @media all and (max-width: 550px)
+ {
+
+    .rdv-content {
+        > h6, p {
+            margin: 10px 30px;
+        }
+    }
+ }

@@ -45,6 +45,7 @@ class LoginController extends AbstractController
             $manager->persist($user);
             $manager->flush();
         }
+        /* Accès réservé à la connexion -- ajouter une route pour la création du premier compte admin */
 
         return $this->render('administration/inscription.html.twig', [
             'title' => 'Inscrire',
