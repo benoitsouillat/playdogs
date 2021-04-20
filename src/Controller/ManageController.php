@@ -48,8 +48,8 @@ class ManageController extends AbstractController
      * @Route ("/manage/{id}", name="dog_edit")
      */
 
-    public function createDog(EntityManagerInterface $manager, Request $request, Dog $dog = null): Response {
-
+    public function createDog(EntityManagerInterface $manager, Request $request, Dog $dog = null): Response 
+    {
         if(!$dog)
         {
             $dog = new Dog();
