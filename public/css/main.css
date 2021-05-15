@@ -357,11 +357,11 @@ footer {
 }
 
 .hour-table thead th {
-  width: 30%;
+  width: 32%;
 }
 
 .hour-table thead th:nth-child(1) {
-  width: 40%;
+  width: 36%;
 }
 
 .hour-table tbody th {
