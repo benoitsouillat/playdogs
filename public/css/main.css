@@ -128,6 +128,13 @@ footer {
   overflow: hidden;
 }
 
+.logo-top {
+  width: 30%;
+  max-width: 330px;
+  position: relative;
+  top: -50px;
+}
+
 .head-title {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -172,9 +179,9 @@ footer {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .head-title section {
@@ -289,6 +296,11 @@ footer {
     color: #d9d9d9;
     text-shadow: 2px 2px 2px #000;
     font-style: italic;
+    margin-bottom: 20px;
+  }
+  .logo-top {
+    position: unset;
+    width: 50%;
   }
   .underline {
     font-size: 1.5em;

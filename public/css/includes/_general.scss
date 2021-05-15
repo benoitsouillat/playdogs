@@ -94,6 +94,14 @@ footer {
     display: none;
     overflow: hidden;
 }
+.logo-top {
+    width: 30%;
+    max-width: 330px;
+
+    position: relative;
+    top: -50px;
+
+}
 .head-title {
     display: flex;
     flex-direction: column;
@@ -118,7 +126,7 @@ footer {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: flex-start;
+        align-items: flex-end;
     }
     section {
         display: flex;
@@ -223,8 +231,13 @@ footer {
                 color: darken($first-color, 15);
                 text-shadow: 2px 2px 2px$second-color;
                 font-style: italic;
+                margin-bottom: 20px;
             }
         }
+    }
+    .logo-top {
+        position: unset;
+        width: 50%;
     }
     .underline {
         font-size: 1.5em;
