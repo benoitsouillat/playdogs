@@ -179,9 +179,9 @@ footer {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .head-title section {
@@ -330,11 +330,86 @@ footer {
           align-items: center;
 }
 
-#accueil p {
+#accueil > p {
   max-width: 70%;
 }
 
+#accueil .content-home {
+  padding: 20px;
+  margin: 20px 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#accueil .content-home > div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#accueil .content-home > .news {
+  width: 35%;
+}
+
+.news {
+  overflow: hidden;
+}
+
+.news figure {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.news h6 {
+  text-align: center;
+}
+
+.news img {
+  max-width: 350px;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 5%;
+  margin: 10px 0;
+  margin-bottom: 25px;
+}
+
 .hour-table {
+  margin-top: 20px;
   width: 65%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -378,6 +453,52 @@ footer {
 
 .hour-table tbody th {
   width: 33%;
+}
+
+@media all and (max-width: 850px) {
+  #accueil .content-home {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #accueil .content-home > div {
+    width: 80%;
+  }
+  #accueil .content-home > .news {
+    margin-top: 30px;
+    width: 80%;
+  }
+}
+
+@media all and (max-width: 630px) {
+  .hour-table {
+    width: 90%;
+  }
+}
+
+@media all and (max-width: 470px) {
+  #accueil .content-home > div {
+    width: 100%;
+  }
+  .hour-table {
+    width: 99%;
+  }
+}
+
+@media all and (min-width: 1400px) {
+  #accueil .content-home > div {
+    width: 50%;
+  }
+  #accueil .content-home > .news {
+    width: 50%;
+  }
 }
 
 .price-container {
