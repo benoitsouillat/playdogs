@@ -66,11 +66,47 @@ class ManageController extends AbstractController
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
-            $dog->setCreatedAt(new \DateTime());
-            $manager->persist($dog);
-            $manager->flush();
+            $proprio = $dog->getOwner();
+            $dogName = $dog->getName();
 
-            return $this->redirectToRoute('manage');
+            $repo = $this->getDoctrine()->getRepository(Dog::class);
+            $owners = $repo->findBy(
+                array('owner' => $proprio),
+                array('id' => 'DESC')
+            );
+            $dogNames = $repo->findBy(
+                array('name' => $dogName),
+                array('id' => 'DESC')
+            );
+            if ($owners && $dogNames)
+            {
+                foreach ($owners as $owner)
+                {
+                    foreach ($dogNames as $dName)
+                    {
+                        if ($dName->getId() == $owner->getId())
+                        {
+                            return $this->render('administration/create.html.twig', [
+                                'formDog' => $form->createView(),
+                                'title' => 'Erreur : CE CHIEN EXISTE DEJA',
+                                'dog' => $search,
+                            ]);
+                        }
+                    }
+                }
+                $dog->setCreatedAt(new \DateTime());
+                $manager->persist($dog);
+                $manager->flush();
+                
+                return $this->redirectToRoute('manage');
+            }
+            else {
+                $dog->setCreatedAt(new \DateTime());
+                $manager->persist($dog);
+                $manager->flush();
+                
+                return $this->redirectToRoute('manage');
+            }
         }
 
         return $this->render('administration/create.html.twig', [
