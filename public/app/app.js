@@ -59,10 +59,11 @@ try {
         let value = search.value.toLowerCase(); // Get the search value
 
         arr.forEach(elm => {
-            elm.classList.remove('hide'); // Reinitialise le tableau de <li>
-            if (!(elm.textContent.toLowerCase().indexOf(value) >= 0))
+            let searchWord = elm.textContent.replace(/ /g, ""); // Remplace les espaces dans la liste <li>
+            elm.classList.remove('hide');                       // Reinitialise le tableau de <li>
+            if (!(searchWord.toLowerCase().indexOf(value.replace(/ /g, "")) >= 0))
             {
-                elm.classList.add('hide'); // Cache tous les <li> qui ne correspondent pas
+                elm.classList.add('hide');                         // Cache tous les <li> qui ne correspondent pas
             }
         });
     });
