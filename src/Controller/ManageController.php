@@ -44,6 +44,24 @@ class ManageController extends AbstractController
     }
 
     /**
+     * @Route("/manage/number", name="dog_number")
+     */
+    public function searchNumber(): Response
+    {
+        $repo = $this->getDoctrine()->getRepository(Dog::class);
+        $dogs = $repo->findBy(
+            array(),
+            array('name' => 'ASC'),
+        );
+
+        return $this->render('administration/number.html.twig', [
+            'title' => 'Rechercher un numéro',
+            'dogs' => $dogs,
+        ]);
+
+    }
+
+    /**
      * @Route("/manage/new", name="dog_create")
      * @Route ("/manage/{id}", name="dog_edit")
      */

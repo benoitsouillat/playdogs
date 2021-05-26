@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% if app.user %}
+
+    <div class="manage">
+        <div class="manage__option">
+            <a href="{{ path('manage') }}" class="btn">Retour à la liste</a>
+            <input id="search-bar" placeholder="Rechercher un numéro" ></input>
+        </div>
+        <section class="manage__list">
+            <h6>Liste des clients :</h6>
+            <ul>
+                {% for dog in dogs %}
+                    {% if dog.tel %}
+                    <li class="client"> - <a href="/manage/{{ dog.id }}" > {{ dog.tel }} </a> => <a href="/manage/{{ dog.id }}" >{{ dog.owner }} </a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+{% else %}
+    <section>
+        <h3>Vous devez être connecté pour accéder à cette page !! </h3>
+    </section>
+
+{% endif %}
+
+
+
+{% endblock %}
