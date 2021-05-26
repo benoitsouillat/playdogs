@@ -1176,6 +1176,10 @@ footer {
   margin: 20px 40px;
 }
 
+.manage__option a {
+  width: 85%;
+}
+
 .manage__list {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;

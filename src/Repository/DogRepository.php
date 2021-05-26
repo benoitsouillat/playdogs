@@ -18,6 +18,23 @@ class DogRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Dog::class);
     }
+    public function findByName()
+    {
+        return $this->createQueryBuilder('d')
+                ->orderBy('d.name', 'ASC')
+                ->getQuery()
+                ->getResult()
+                ;
+    }
+
+    public function findByOwner()
+    {
+        return $this->createQueryBuilder('d')
+                ->orderBy('d.owner', 'ASC')
+                ->getQuery()
+                ->getResult()
+                ;
+    }
 
     // /**
     //  * @return Dog[] Returns an array of Dog objects

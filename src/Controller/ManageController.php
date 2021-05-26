@@ -10,21 +10,33 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class ManageController extends AbstractController
 {
 
     /**
      * @Route("/manage", name="manage")
+     * @ParamConverter("search", options={"search" = "search"})
      */
-    public function manage(): Response
+    public function manage(Request $request): Response
     {
 
         $repo = $this->getDoctrine()->getRepository(Dog::class);
-        $dogs = $repo->findBy(
-            array(),
-            array('name' => 'ASC'),
-        );
+
+        // $dogs = $repo->findByBreed(); // Pour trier par race
+        $search = $request->getQueryString();
+        if (!$search)
+        {
+            $dogs = $repo->findByName();
+        }
+        elseif ($search == 'search=owner')
+        {
+            $dogs = $repo->findByOwner();
+        }
+        else {
+            $dogs = $repo->findByName();
+        }
 
         return $this->render('administration/manage.html.twig', [
             'title' => 'Gestion des clients',
