@@ -1132,6 +1132,23 @@ footer {
   border-left-color: #abdcab;
 }
 
+.manage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
 .manage div, .manage section {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1143,19 +1160,20 @@ footer {
 }
 
 .manage__option {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  max-width: 33%;
 }
 
 .manage__option input {
   height: 40px;
   min-width: 220px;
-  margin: 0 40px;
+  margin: 20px 40px;
 }
 
 .manage__list {
@@ -1163,6 +1181,11 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  border-right: black solid 1px;
+}
+
+.manage__list h6 {
+  margin-top: 10px;
 }
 
 .manage__list li {
@@ -1378,6 +1401,9 @@ footer {
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
+  }
+  .manage__list {
+    border-right: unset;
   }
   .manage__list ul {
     width: 90%;

@@ -25,23 +25,36 @@
 
 .manage {
 
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+
     div, section {
         display: flex;
         align-items: center;
         width: 100%;
     }
     &__option {
-        flex-direction: row;
+        flex-direction: column-reverse;
         justify-content: center;
+        max-width: 33%;
 
         input {
             height: 40px;
             min-width: 220px;
-            margin: 0 40px;
+            margin: 20px 40px;
         }
     }
     &__list {
         flex-direction: column;
+        border-right: black solid 1px;
+
+
+        h6 {
+            margin-top: 10px;
+        }
 
         li {
             font-size: 1.2rem;
@@ -194,6 +207,7 @@
         }
     }
     &__list {
+        border-right: unset;
         ul {
             width: 90%;
             font-weight: bold;

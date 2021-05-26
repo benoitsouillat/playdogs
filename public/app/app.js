@@ -57,7 +57,6 @@ try {
 
     search.addEventListener("keyup", function () {
         let value = search.value.toLowerCase(); // Get the search value
-        console.log(value);
 
         arr.forEach(elm => {
             elm.classList.remove('hide'); // Reinitialise le tableau de <li>
