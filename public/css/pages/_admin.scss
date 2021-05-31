@@ -201,6 +201,7 @@
     }
     .manage__option {
         width: 60%;
+        max-width: unset;
         flex-direction: column;
         align-items: stretch;
         text-align: center;
@@ -226,6 +227,17 @@
 
             }
         }
+    }
+}
+}
+
+@media all and (max-width: 340px)
+{
+
+.manage {
+    .manage__option {
+        width: 95%;
+        max-width: unset;
     }
 }
 }

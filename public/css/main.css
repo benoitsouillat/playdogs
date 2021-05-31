@@ -1392,6 +1392,7 @@ footer {
   }
   .manage .manage__option {
     width: 60%;
+    max-width: unset;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -1420,6 +1421,13 @@ footer {
     border-bottom: solid 1px gray;
     font-size: 16px;
     text-align: center;
+  }
+}
+
+@media all and (max-width: 340px) {
+  .manage .manage__option {
+    width: 95%;
+    max-width: unset;
   }
 }
 /*# sourceMappingURL=main.css.map */
