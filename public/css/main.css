@@ -1229,6 +1229,7 @@ footer {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 30px;
+  padding-top: 50px;
 }
 
 .manage__add form div {
@@ -1269,7 +1270,7 @@ footer {
 }
 
 .manage__add__info {
-  min-width: 30%;
+  min-width: 40%;
   max-width: 50%;
   padding-top: 50px;
 }
@@ -1290,11 +1291,11 @@ footer {
           align-items: center;
   font-size: 20px;
   width: 100%;
-  padding: 50px 0;
+  padding: 10px;
 }
 
 .manage__add__info ul li {
-  width: 80%;
+  width: 85%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1323,7 +1324,9 @@ footer {
 .manage__add__info ul li img {
   -o-object-fit: cover;
      object-fit: cover;
-  width: 100%;
+  width: auto;
+  margin: auto;
+  max-height: 450px;
 }
 
 .manage__add .form-group textarea {
