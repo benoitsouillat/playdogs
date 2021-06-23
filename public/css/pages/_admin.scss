@@ -72,7 +72,8 @@
         flex-direction: row;
 
         form {
-            width: 60%;
+            min-width: 40%;
+            max-width: 60%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -111,7 +112,7 @@
         }
         &__info {
             min-width: 40%;
-            max-width: 50%;
+            max-width: 60%;
             padding-top: 50px;
             ul {
                 display: flex;
@@ -151,7 +152,8 @@
         }
         .form-group {
             textarea {
-                width: 50%!important;
+                min-width: 300px;
+                width: 25%!important;
                 border: solid grey 3px;
                 min-height: 120px;
             }

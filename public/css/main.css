@@ -1214,7 +1214,8 @@ footer {
 }
 
 .manage__add form {
-  width: 60%;
+  min-width: 40%;
+  max-width: 60%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1271,7 +1272,7 @@ footer {
 
 .manage__add__info {
   min-width: 40%;
-  max-width: 50%;
+  max-width: 60%;
   padding-top: 50px;
 }
 
@@ -1330,7 +1331,8 @@ footer {
 }
 
 .manage__add .form-group textarea {
-  width: 50% !important;
+  min-width: 300px;
+  width: 25% !important;
   border: solid grey 3px;
   min-height: 120px;
 }
