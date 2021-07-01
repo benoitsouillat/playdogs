@@ -1,7 +1,9 @@
 swiftmailer:
-    transport: gmail
-    username: dev.souillat
-    password: Lueur87190!
-    host: localhost
+#    transport: smtp
+#    host: mail.infomaniak.com
+#    username: dev@playdogs.eu
+#    password: Lueur87190
+#    port: 25
+    url: '%env(MAILER_URL)%'
     spool: { type: 'memory' }
 
