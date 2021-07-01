@@ -2,9 +2,9 @@
 {% block body %}
 
 <div>
-    <ul>
+    <ul style="list-style: none;">
         <li>
-        <h3 style="color: red; font-weight: bold;">{{ contact.firstname }} {{ contact.lastname}} a envoyé un message depuis le site : </h3>
+        <h3 style="color: rgb(237, 115, 115); font-weight: bold;">{{ contact.firstname }} {{ contact.lastname}} a envoyé un message depuis le site : </h3>
         </li>
         <li>
             <p style="font-style: italic">{{ contact.message }}</p>
@@ -14,7 +14,7 @@
                 <br/>
                 <br/>
         <li>
-            <ul>
+            <ul style="list-style: none;">
                 <li>Email : {{ contact.email }}</li>
                 <li>Téléphone : {{ contact.tel }}</li>
             </ul>
