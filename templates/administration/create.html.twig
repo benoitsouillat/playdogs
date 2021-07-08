@@ -52,7 +52,7 @@
                 <li>M ou Mme : <span>{{ dog.owner }}</span></li>
                 <li>N° Téléphone : <span>{{ dog.tel }}</span></li>
                 <li>Description :<br/> <span>{{ dog.description }}</span></li>
-                <li><img src="/img/client/{{dog.filename}}" /></li>
+                <li><img src="{{ asset("img/client/" ~ dog.filename) | imagine_filter('reduc') }} "/></li>
                 <br/>
             </ul>
         {% endif %}

@@ -20,3 +20,7 @@
 ###< symfony/web-server-bundle ###
 
 /.vscode
+/public/img
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###
