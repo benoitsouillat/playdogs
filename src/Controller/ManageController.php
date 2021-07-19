@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Dog;
 use App\Entity\User;
 use App\Form\ClientType;
+use App\Form\SearchType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,12 +20,13 @@ class ManageController extends AbstractController
      * @Route("/manage", name="manage")
      * @ParamConverter("search", options={"search" = "search"})
      */
-    public function manage(Request $request): Response
+    public function manage(Request $request, ?String $value): Response
     {
 
         $repo = $this->getDoctrine()->getRepository(Dog::class);
 
         // $dogs = $repo->findByBreed(); // Pour trier par race
+        // $breed = $this->createForm(SearchType::class, $value);
         $search = $request->getQueryString();
         if (!$search)
         {
@@ -34,6 +36,10 @@ class ManageController extends AbstractController
         {
             $dogs = $repo->findByOwner();
         }
+        //elseif ($search == 'search='.$value)
+        //{
+        //    $dogs = $repo->findSearch($value);
+        //}
         else {
             $dogs = $repo->findByName();
         }
@@ -41,6 +47,7 @@ class ManageController extends AbstractController
         return $this->render('administration/manage.html.twig', [
             'title' => 'Gestion des clients',
             'dogs' => $dogs,
+            //'breed' => $breed->createView(),
             ]);
         }
         

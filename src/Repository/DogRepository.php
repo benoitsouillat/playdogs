@@ -36,6 +36,17 @@ class DogRepository extends ServiceEntityRepository
                 ;
     }
 
+    public function findSearch($value)
+    {
+        return $this->createQueryBuilder('d')
+                    ->andWhere('d.race = :val')
+                    ->setParameter('val', $value)
+                    ->orderBy('d.name', 'ASC')
+                    ->getQuery()
+                    ->getResult()
+                    ;
+    }
+
     // /**
     //  * @return Dog[] Returns an array of Dog objects
     //  */
