@@ -51,7 +51,7 @@
                 <li>Race : <span>{{ dog.race }}</span></li>
                 <li>M ou Mme : <span>{{ dog.owner }}</span></li>
                 <li>N° Téléphone : <span>{{ dog.tel }}</span></li>
-                <li>Description :<br/> <span>{{ dog.description }}</span></li>
+                <li>Description :<br/> <span>{{ dog.description |nl2br }}</span></li>
                 <li><img src="{{ asset("img/client/" ~ dog.filename) | imagine_filter('reduc') }} "/></li>
                 <br/>
             </ul>
