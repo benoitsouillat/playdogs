@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block body %} 
+
+<div class="manage">
+    <div class="manage__option">
+        <a class="btn" href="{{ path('admin_admin')}}" >Retour à l'administration</a>
+    </div>
+
+    </div>
+    <div class="manage__add">
+
+        {{form_start(form)}}
+
+        <h5>Entrez un nom d'utilisateur disponible et un mot de passe : </h5>
+
+        <br/>
+
+
+            {{ form_row(form.username)}}
+            {{ form_row(form.password)}}
+
+            <button type="submit" class="btn">Enregistrer</button>
+
+
+        {{form_end(form)}}
+    </div>
+</div>
+{% endblock %}

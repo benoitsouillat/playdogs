@@ -2,15 +2,20 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Price;
 use App\Entity\Candidates;
 use App\Form\AddPriceType;
+use App\Form\AddUserType;
+use App\Form\InscriptionType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 
 
 /**
@@ -115,20 +120,40 @@ class AdminController extends AbstractController
         // Recupérer la base de donnée pour vérifier que le user n'existe pas
         $user = new User();
 
-        $form = $this->createForm(InscriptionType::class, $user);
+        $form = $this->createForm(AddUserType::class, $user);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid())
         {
             $encoded = $encoder->encodePassword($user, $user->getPassword());
                 $user->setPassword($encoded);
-                $user->setRoles('ROLE_USER');
+                $user->setRoles(['ROLE_USER']);
 
             $manager->persist($user);
             $manager->flush();
+
+            return $this->redirectToRoute('admin_admin');
         }
+
+
+
+        return $this->render('administration/create_user.html.twig', [
+            'title' => "Créer un utilisateur",
+            'form' => $form->createView()
+        ]);
 
     }
 
+    /**
+     * @Route ("/adduser/delete/{id}", name="delete_user")
+     * @ParamConverter("id", options={"id" = "users_id"})
+     */
+    public function deleteUser(EntityManagerInterface $manager, User $user): Response
+    {
+        $manager->remove($user);
+        $manager->flush();
 
+        return $this->redirectToRoute('admin_inscription');
+
+    }
 
 }
