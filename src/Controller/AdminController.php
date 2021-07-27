@@ -106,6 +106,29 @@ class AdminController extends AbstractController
 
     }
 
+    /**
+     * @Route("/adduser", name="adduser")
+     */
+    public function addUser(EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder, Request $request): Response
+    {
+
+        // Recupérer la base de donnée pour vérifier que le user n'existe pas
+        $user = new User();
+
+        $form = $this->createForm(InscriptionType::class, $user);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $encoded = $encoder->encodePassword($user, $user->getPassword());
+                $user->setPassword($encoded);
+                $user->setRoles('ROLE_USER');
+
+            $manager->persist($user);
+            $manager->flush();
+        }
+
+    }
+
 
 
 }

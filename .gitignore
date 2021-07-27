@@ -25,3 +25,5 @@
 ###> liip/imagine-bundle ###
 /public/media/cache/
 ###< liip/imagine-bundle ###
+/deploy
+/ssh

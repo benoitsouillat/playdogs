@@ -215,10 +215,10 @@ footer {
   border-right: solid #abdcab 4px;
   border-left: solid #abdcab 4px;
   background-color: rgba(0, 0, 0, 0.06);
-  -webkit-transition-delay: 100ms;
-          transition-delay: 100ms;
-  -webkit-transition-duration: 600ms;
-          transition-duration: 600ms;
+  -webkit-transition-delay: 50ms;
+          transition-delay: 50ms;
+  -webkit-transition-duration: 300ms;
+          transition-duration: 300ms;
   -webkit-transition-property: border-right, border-left, -webkit-transform;
   transition-property: border-right, border-left, -webkit-transform;
   transition-property: transform, border-right, border-left;

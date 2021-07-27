@@ -155,8 +155,8 @@ footer {
     border-right: solid $fourth-color 4px;
     border-left: solid $fourth-color 4px;
     background-color: rgba(0,0,0,.06);
-    transition-delay: 100ms;
-    transition-duration: 600ms;
+    transition-delay: 50ms;
+    transition-duration: 300ms;
     transition-property: transform, border-right, border-left;
     transition-timing-function: ease-in;
     margin: 10px;
