@@ -91,6 +91,7 @@ class ManageController extends AbstractController
         {
             $dog = new Dog();
             $search = 0;
+            $dog->setFilename('oupsss.jpg');  // Défini une image par defaut 
         }
         else {
             $id = $dog->getId();
