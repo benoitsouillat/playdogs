@@ -124,6 +124,9 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid())
         {
+
+            dump($user->getUsername());
+
             $encoded = $encoder->encodePassword($user, $user->getPassword());
                 $user->setPassword($encoded);
                 $user->setRoles(['ROLE_USER']);
@@ -138,7 +141,8 @@ class AdminController extends AbstractController
 
         return $this->render('administration/create_user.html.twig', [
             'title' => "Créer un utilisateur",
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'errors' => $form->getErrors()
         ]);
 
     }
