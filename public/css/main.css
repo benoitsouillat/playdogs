@@ -330,8 +330,12 @@ footer {
           align-items: center;
 }
 
-#accueil > p {
+#accueil > p, #accueil h5 {
   max-width: 70%;
+  text-transform: unset;
+  letter-spacing: unset;
+  text-align: center;
+  font-size: 0.78rem;
 }
 
 #accueil .content-home {
@@ -490,6 +494,13 @@ footer {
 }
 
 @media all and (max-width: 850px) {
+  #accueil > p, #accueil h5 {
+    max-width: 70%;
+    text-transform: unset;
+    letter-spacing: unset;
+    text-align: center;
+    font-size: 0.78rem;
+  }
   #accueil .content-home {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -518,8 +529,18 @@ footer {
 }
 
 @media all and (max-width: 470px) {
+  #accueil > p, #accueil h5 {
+    max-width: 70%;
+    text-transform: unset;
+    letter-spacing: unset;
+    text-align: center;
+    font-size: 0.78rem;
+  }
   #accueil .content-home > div {
     width: 100%;
+  }
+  #accueil .content-home .hours {
+    display: none;
   }
   .hour-table {
     width: 99%;
@@ -527,6 +548,13 @@ footer {
 }
 
 @media all and (min-width: 1400px) {
+  #accueil > p, #accueil h5 {
+    max-width: 70%;
+    text-transform: unset;
+    letter-spacing: unset;
+    text-align: center;
+    font-size: 0.78rem;
+  }
   #accueil .content-home > div {
     width: 50%;
   }
@@ -1362,6 +1390,7 @@ footer {
   width: auto;
   margin: auto;
   max-height: 450px;
+  max-width: 100%;
 }
 
 .manage__add .form-group textarea {

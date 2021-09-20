@@ -3,8 +3,12 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    > p {
+    > p, h5 {
         max-width: 70%;
+        text-transform: unset;
+        letter-spacing: unset;
+        text-align: center;
+        font-size: 0.78rem;
     }
     .content-home {
         padding: 20px;
@@ -114,6 +118,13 @@
 @media all and (max-width: 850px)
 {
     #accueil {
+        > p, h5 {
+            max-width: 70%;
+            text-transform: unset;
+            letter-spacing: unset;
+            text-align: center;
+            font-size: 0.78rem;
+        }
         .content-home {
             flex-direction: column;
             justify-content: flex-start;
@@ -137,9 +148,19 @@
 @media all and (max-width: 470px)
 {
     #accueil {
+        > p, h5 {
+            max-width: 70%;
+            text-transform: unset;
+            letter-spacing: unset;
+            text-align: center;
+            font-size: 0.78rem;
+        }
         .content-home {
             > div {
                 width: 100%;
+            }
+            .hours {
+                display: none;
             }
         }
     }
@@ -150,6 +171,13 @@
 
 @media all and (min-width: 1400px) {
     #accueil {
+        > p, h5 {
+            max-width: 70%;
+            text-transform: unset;
+            letter-spacing: unset;
+            text-align: center;
+            font-size: 0.78rem;
+        }
         .content-home {
             > div {
                 width: 50%;
