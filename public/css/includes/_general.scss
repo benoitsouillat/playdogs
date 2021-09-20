@@ -182,6 +182,7 @@ footer {
 
 @media all and (max-width: 600px)
 {
+
     nav {
         ul {
             display: none;
@@ -245,6 +246,11 @@ footer {
 
 }
 @media all and (max-width: 385px) {
+    .btn {
+        padding: 0.4rem 1.2rem;
+        font-size: 0.7rem;
+        line-height: 1.05rem;
+    }
     .underline {
         font-size: 1.3em;
     }
