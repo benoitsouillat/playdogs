@@ -124,8 +124,6 @@ class ManageController extends AbstractController
                     {
                         if ($dName->getId() == $owner->getId() && $dName->getId() != $dog->getId())
                         {
-                            dump($dName->getId());
-                            dump($dog->getId());
                             return $this->render('administration/create.html.twig', [
                                 'formDog' => $form->createView(),
                                 'title' => 'Erreur : CE CHIEN EXISTE DEJA',
