@@ -7,13 +7,19 @@
 
     
     {{ form_start(form) }}
+
+    {{form_row(form.description) }}
+    {{form_row(form.price) }}
+    {{form_row(form.groomer) }}
+
+    <p>Il faut ajouter une ligne pour la gestion de la date au cas où la donnée ne soit pas entré le jour même</p>
     
     <button class="btn" type="submit">Valider</button>
     
     {{ form_end(form) }}
     
     {# A déplacer sur la page dog_edit #}
-    <div class="d-flex flex-column justify-content-center">
+    <div class="d-flex flex-column justify-content-end align-items-center">
         <h5>{{ dog.name }} {{dog.race}} de M {{ dog.owner}}</h5>
         {% for prestation in prestations %} {# A déplacer sur la page dog_edit #}
         <li class="client"> {{ prestation.description }}
