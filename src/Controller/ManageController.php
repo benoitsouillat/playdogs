@@ -22,7 +22,7 @@ class ManageController extends AbstractController
      * @Route("/manage", name="manage")
      * @ParamConverter("search", options={"search" = "search"})
      */
-    public function manage(Request $request, ?String $value): Response
+    public function manage(Request $request): Response
     {
 
         $repo = $this->getDoctrine()->getRepository(Dog::class);
@@ -91,8 +91,9 @@ class ManageController extends AbstractController
 
         $repo = $this->getDoctrine()->getRepository(Prestations::class);
         $prestaArray = $repo->findBy(
-            array(),
+            array('dog' => $dog),
             array('date' => 'DESC'),
+            5,
         );
         dump($prestaArray);
         $form = $this->createForm(PrestationsType::class, $prestation);
@@ -110,7 +111,7 @@ class ManageController extends AbstractController
 
         return $this->render('administration/prestations.html.twig', [
 
-            'title' => 'Créer une prestation de ' . $dogName,
+            'title' => 'Créer une prestation pour ' . $dogName,
             'dog' => $dog,
             'prestations' => $prestaArray,
             'form' => $form->createView(),
@@ -193,7 +194,7 @@ class ManageController extends AbstractController
                 $manager->persist($dog);
                 $manager->flush();
 
-                return $this->redirectToRoute('manage');
+                return $this->redirectToRoute('manage', [], 200);
             }
         }
 

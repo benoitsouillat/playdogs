@@ -5,25 +5,28 @@
 
 <div class="manage__add">
 
-    <h6>{{ dog.name }} {{dog.race}} de M {{ dog.owner}}</h6>
-
+    
     {{ form_start(form) }}
-
-        <button class="btn" type="submit">Valider</button>
-
+    
+    <button class="btn" type="submit">Valider</button>
+    
     {{ form_end(form) }}
-
-    {% for prestation in prestations %}
-    <li class="client"> {{ prestation.description }} sur {{ prestation.dog.name }} par {{ prestation.groomer }}
-        <br/>
-        <p>Fait le : {{prestation.date | date('d M Y', "Europe/Paris")}}</p>
-    </li>
-    {% endfor %}
+    
+    {# A déplacer sur la page dog_edit #}
+    <div class="d-flex flex-column justify-content-center">
+        <h5>{{ dog.name }} {{dog.race}} de M {{ dog.owner}}</h5>
+        {% for prestation in prestations %} {# A déplacer sur la page dog_edit #}
+        <li class="client"> {{ prestation.description }}
+            <br/>
+            <p>Fait le : {{prestation.date | date('d M Y à H:i:s', "Europe/Paris")}}  par {{ prestation.groomer }}</p>
+        </li>
+        {% endfor %} 
+    </div>
+    {# A déplacer sur la page dog_edit #}
 
     <div class="manage__add__button">
+        <a href="{{ path('dog_edit', {'id':dog.id}) }}" class="btn">Revenir sur {{ dog.name }}</a>
         <a href="{{ path('manage') }}" class="btn">Revenir à la liste</a>
-        <a href="{{ path('manage') }}" class="btn">Ajouter une prestation</a> {# Route à changer lorsque la fonction existera #}
-
     </div>
 </div>
 
