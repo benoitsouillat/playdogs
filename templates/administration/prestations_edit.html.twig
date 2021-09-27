@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+*
+
+<div class="manage__add">
+
+    {% for prestation in prestations %}
+    <li class="client"> -
+        <a href="/manage/{{ prestation.id }}" >{{ prestation.description }} </a>   >{{ prestation.groomer }} </a></li>
+    {% endfor %}
+
+    <p> Page Edit</p>
+
+
+    <div class="manage__add__button">
+        <a href="{{ path('manage') }}" class="btn">Revenir à la liste</a>
+        <a href="{{ path('manage') }}" class="btn">Ajouter une prestation</a> {# Route à changer lorsque la fonction existera #}
+
+    </div>
+</div>
+
+
+{% endblock body %}

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+*
+
+<div class="manage__add">
+
+    <h6>{{ dog.name }} {{dog.race}} de M {{ dog.owner}}</h6>
+
+    {{ form_start(form) }}
+
+        <button class="btn" type="submit">Valider</button>
+
+    {{ form_end(form) }}
+
+    {% for prestation in prestations %}
+    <li class="client"> {{ prestation.description }} sur {{ prestation.dog.name }} par {{ prestation.groomer }}
+        <br/>
+        <p>Fait le : {{prestation.date | date('d M Y', "Europe/Paris")}}</p>
+    </li>
+    {% endfor %}
+
+    <div class="manage__add__button">
+        <a href="{{ path('manage') }}" class="btn">Revenir à la liste</a>
+        <a href="{{ path('manage') }}" class="btn">Ajouter une prestation</a> {# Route à changer lorsque la fonction existera #}
+
+    </div>
+</div>
+
+
+{% endblock body %}

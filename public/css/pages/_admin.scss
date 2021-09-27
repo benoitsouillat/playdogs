@@ -151,6 +151,15 @@
                 }
             }
         }
+        &__button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            a {
+                text-align: center;
+            }
+        }
         .form-group {
             textarea {
                 min-width: 300px;
@@ -194,6 +203,9 @@
             ul {
                 padding: 0;
             }
+
+        }
+        &__button {
 
             a {
                 align-self: center;

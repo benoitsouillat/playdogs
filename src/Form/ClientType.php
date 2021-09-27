@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ClientType extends AbstractType
@@ -39,13 +40,13 @@ class ClientType extends AbstractType
             ->add('description', TextareaType::class, [
                 'required' => false,
             ])
-            ->add('tel', TextType::class, [
+            ->add('tel', TelType::class, [
                 'required' => false,
+                'invalid_message' => 'Veuillez entrer un numéro de téléphone !',
             ])
             ->add('imageFile', VichImageType::class, [
                 'required' => false,
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
