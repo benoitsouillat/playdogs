@@ -6,11 +6,8 @@ use App\Entity\Dog;
 use App\Entity\Prestations;
 use App\Entity\User;
 use App\Form\ClientType;
-<<<<<<< HEAD
-=======
 use App\Form\PrestationsType;
 use Doctrine\ORM\EntityManager;
->>>>>>> dcd536686dbcbe57a45018bb545f7c307b5d1f89
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -44,16 +41,8 @@ class ManageController extends AbstractController
         return $this->render('administration/manage.html.twig', [
             'title' => 'Gestion des clients',
             'dogs' => $dogs,
-<<<<<<< HEAD
-            ]);
-        }
-        
-=======
-            //'breed' => $breed->createView(),
         ]);
     }
-
->>>>>>> dcd536686dbcbe57a45018bb545f7c307b5d1f89
     /**
      * @Route ("/manage/delete/{id}", name="dog_delete")
      */
@@ -153,13 +142,8 @@ class ManageController extends AbstractController
         if (!$dog) {
             $dog = new Dog();
             $search = 0;
-<<<<<<< HEAD
-        }
-        else {
-=======
             $dog->setFilename('oupsss.jpg');  // Défini une image par defaut 
         } else {
->>>>>>> dcd536686dbcbe57a45018bb545f7c307b5d1f89
             $id = $dog->getId();
             $repo = $this->getDoctrine()->getRepository(Dog::class);
             $search = $repo->find($id);
