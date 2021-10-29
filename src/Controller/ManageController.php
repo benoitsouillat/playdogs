@@ -3,8 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Dog;
+use App\Entity\Prestations;
 use App\Entity\User;
 use App\Form\ClientType;
+<<<<<<< HEAD
+=======
+use App\Form\PrestationsType;
+use Doctrine\ORM\EntityManager;
+>>>>>>> dcd536686dbcbe57a45018bb545f7c307b5d1f89
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,12 +32,9 @@ class ManageController extends AbstractController
 
         // $dogs = $repo->findByBreed(); // Pour trier par race
         $search = $request->getQueryString();
-        if (!$search)
-        {
+        if (!$search) {
             $dogs = $repo->findByName();
-        }
-        elseif ($search == 'search=owner')
-        {
+        } elseif ($search == 'search=owner') {
             $dogs = $repo->findByOwner();
         }
         else {
@@ -41,9 +44,16 @@ class ManageController extends AbstractController
         return $this->render('administration/manage.html.twig', [
             'title' => 'Gestion des clients',
             'dogs' => $dogs,
+<<<<<<< HEAD
             ]);
         }
         
+=======
+            //'breed' => $breed->createView(),
+        ]);
+    }
+
+>>>>>>> dcd536686dbcbe57a45018bb545f7c307b5d1f89
     /**
      * @Route ("/manage/delete/{id}", name="dog_delete")
      */
@@ -70,32 +80,95 @@ class ManageController extends AbstractController
             'title' => 'Rechercher un numéro',
             'dogs' => $dogs,
         ]);
-
     }
+
+    /**
+     * @Route("/manage/presta/{id}", name="dog_presta")
+     * @paramConverter("id", options={"id" = "dog_id"})
+     */
+    public function managePresta(EntityManagerInterface $manager, Request $request, Dog $dog): Response
+    {
+
+        $dogId = $dog->getId();
+        $dogName = $dog->getName();
+        $prestation = new Prestations;
+
+        $repo = $this->getDoctrine()->getRepository(Prestations::class);
+        $prestaArray = $repo->findBy(
+            array('dog' => $dog),
+            array('date' => 'DESC'),
+            5,
+        );
+        dump($prestaArray);
+        $form = $this->createForm(PrestationsType::class, $prestation);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $prestation->setDate(new \DateTime());
+            $prestation->setDog($dog);
+            $manager->persist($prestation);
+            $manager->flush();
+
+            return $this->redirectToRoute('dog_edit', ['id' => $dogId], 201);
+        }
+
+        return $this->render('administration/prestations.html.twig', [
+
+            'title' => 'Créer une prestation pour ' . $dogName,
+            'dog' => $dog,
+            'prestations' => $prestaArray,
+            'form' => $form->createView(),
+
+
+        ]);
+
+        /*
+        $var = $dog->getPrestations();
+        $dogName = $dog->getName();
+
+        $repo = $this->getDoctrine()->getRepository(Prestations::class);
+        $prestations = $repo->findBy(
+            array(),
+            array('date' => 'DESC'),
+        );
+
+        return $this->render('administration/prestations.html.twig', [
+            'title' => 'Prestations de '. $dogName,
+            'prestations' => $prestations,
+            'dog' => $dog,
+        ]);
+        /*
+            /* Il faudra reporter la liste des dernière prestation sur la page manage et se servir de cette page comme AddPresta */
+    }
+
 
     /**
      * @Route("/manage/new", name="dog_create")
      * @Route ("/manage/{id}", name="dog_edit")
      */
 
-    public function createDog(EntityManagerInterface $manager, Request $request, Dog $dog = null): Response 
+    public function createDog(EntityManagerInterface $manager, Request $request, Dog $dog = null): Response
     {
-        if(!$dog)
-        {
+        if (!$dog) {
             $dog = new Dog();
             $search = 0;
+<<<<<<< HEAD
         }
         else {
+=======
+            $dog->setFilename('oupsss.jpg');  // Défini une image par defaut 
+        } else {
+>>>>>>> dcd536686dbcbe57a45018bb545f7c307b5d1f89
             $id = $dog->getId();
             $repo = $this->getDoctrine()->getRepository(Dog::class);
             $search = $repo->find($id);
         }
-        
+
         $form = $this->createForm(ClientType::class, $dog);
 
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid())
-        {
+        if ($form->isSubmitted() && $form->isValid()) {
             $proprio = $dog->getOwner();
             $dogName = $dog->getName();
 
@@ -108,16 +181,10 @@ class ManageController extends AbstractController
                 array('name' => $dogName),
                 array('id' => 'DESC')
             );
-            if ($owners && $dogNames)
-            {
-                foreach ($owners as $owner)
-                {
-                    foreach ($dogNames as $dName)
-                    {
-                        if ($dName->getId() == $owner->getId() && $dName->getId() != $dog->getId())
-                        {
-                            dump($dName->getId());
-                            dump($dog->getId());
+            if ($owners && $dogNames)  /* Vérifie si le chien n'a pas déjà été créé */ {
+                foreach ($owners as $owner) {
+                    foreach ($dogNames as $dName) {
+                        if ($dName->getId() == $owner->getId() && $dName->getId() != $dog->getId()) {
                             return $this->render('administration/create.html.twig', [
                                 'formDog' => $form->createView(),
                                 'title' => 'Erreur : CE CHIEN EXISTE DEJA',
@@ -129,15 +196,14 @@ class ManageController extends AbstractController
                 $dog->setCreatedAt(new \DateTime());
                 $manager->persist($dog);
                 $manager->flush();
-                
+
                 return $this->redirectToRoute('manage');
-            }
-            else {
-                $dog->setCreatedAt(new \DateTime());
+            } else {
+                $dog->setCreatedAt(new \DateTime()); /* Modifie la valeur de CreatedAt pour valider les changements du flush */
                 $manager->persist($dog);
                 $manager->flush();
-                
-                return $this->redirectToRoute('manage');
+
+                return $this->redirectToRoute('manage', [], 200);
             }
         }
 
@@ -147,20 +213,4 @@ class ManageController extends AbstractController
             'dog' => $search,
         ]);
     }
-
-    /**
-     * @Route("/search/{id}", name="search")
-     */
-    public function search($id): Response
-    {
-        $repo = $this->getDoctrine()->getRepository(Dog::class);
-        $dog = $repo->find($id);
-
-        return $this->render('administration/search.html.twig', [
-            'title' => 'Recherche : '. $dog->getName(),
-            'dog' => $dog
-        ]);
-    }
-
-
 }

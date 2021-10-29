@@ -56,7 +56,11 @@
                 <br/>
             </ul>
         {% endif %}
+    </div>
+    <div class="manage__add__button">
         <a href="{{ path('manage') }}" class="btn">Revenir à la liste</a>
+        <a href="{{ path('dog_presta', {'id' : dog.id}) }}" class="btn">Ajouter une prestation</a> {# Route à changer lorsque la fonction existera #}
+
     </div>
 </div>
 
