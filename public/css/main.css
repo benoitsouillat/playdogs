@@ -273,6 +273,9 @@ footer {
   justify-content: flex-start;
   align-items: center;
 }
+#accueil .content-home .carou-accueil {
+  margin: auto;
+}
 #accueil .content-home .carou-accueil figure {
   display: flex;
   flex-direction: column;

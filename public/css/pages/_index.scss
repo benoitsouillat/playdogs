@@ -27,6 +27,7 @@
             align-items: center;
         }
         .carou-accueil {
+            margin: auto;
             figure {
                 display: flex;
                 flex-direction: column;
@@ -42,6 +43,7 @@
                 figcaption {
                     margin-top: 20px;
                     text-align: center;
+                   // background-color: darken($color: #fff, $amount: 12);
                 }
             }
 
