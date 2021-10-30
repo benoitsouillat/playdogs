@@ -51,15 +51,15 @@
                 <li>Race : <span>{{ dog.race }}</span></li>
                 <li>M ou Mme : <span>{{ dog.owner }}</span></li>
                 <li>N° Téléphone : <span>{{ dog.tel }}</span></li>
-                <li>Description :<br/> <span>{{ dog.description }}</span></li>
-                <li><img src="/img/client/{{dog.filename}}" /></li>
+                <li>Description :<br/> <span>{{ dog.description |nl2br }}</span></li>
+                <li><img src="{{ asset("img/client/" ~ dog.filename) | imagine_filter('reduc') }} "/></li>
                 <br/>
             </ul>
         {% endif %}
     </div>
     <div class="manage__add__button">
         <a href="{{ path('manage') }}" class="btn">Revenir à la liste</a>
-        <a href="{{ path('dog_presta', {'id' : dog.id}) }}" class="btn">Ajouter une prestation</a> {# Route à changer lorsque la fonction existera #}
+        <a href="{{ path('manage') }}" class="btn">Ajouter une prestation</a> {# Route à changer lorsque la fonction existera #}
 
     </div>
 </div>

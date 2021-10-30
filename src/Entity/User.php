@@ -30,6 +30,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min = 3, minMessage="Le mot de passe doit être plus long ! ")
      */
     private $password;
 
@@ -69,12 +70,10 @@ class User implements UserInterface
     }
     public function eraseCredentials()
     {
-
     }
 
     public function getSalt()
     {
-
     }
     public function getRoles()
     {
@@ -92,4 +91,3 @@ class User implements UserInterface
         return $this;
     }
 }
-

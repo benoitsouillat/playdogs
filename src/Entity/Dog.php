@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\DogRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -74,16 +72,6 @@ class Dog
      * @var \DateTime
      */
     private $updatedAt;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Prestations::class, mappedBy="dog")
-     */
-    private $prestations;
-
-    public function __construct()
-    {
-        $this->prestations = new ArrayCollection();
-    }
 
 
     public function getId(): ?int
@@ -198,36 +186,6 @@ class Dog
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Prestations[]
-     */
-    public function getPrestations(): Collection
-    {
-        return $this->prestations;
-    }
-
-    public function addPrestation(Prestations $prestation): self
-    {
-        if (!$this->prestations->contains($prestation)) {
-            $this->prestations[] = $prestation;
-            $prestation->setDog($this);
-        }
-
-        return $this;
-    }
-
-    public function removePrestation(Prestations $prestation): self
-    {
-        if ($this->prestations->removeElement($prestation)) {
-            // set the owning side to null (unless already changed)
-            if ($prestation->getDog() === $this) {
-                $prestation->setDog(null);
-            }
-        }
 
         return $this;
     }

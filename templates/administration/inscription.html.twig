@@ -15,7 +15,8 @@
                     {% if list.roles[0] == 'ROLE_ADMIN' %}
                     Administrateur
                     {% elseif list.roles[0] == 'ROLE_USER' %}
-                    Toiletteur
+                    Toiletteur - 
+                    <a href="{{ path('admin_delete_user', {'id' : list.id} )}}">Supprimer</a>
                     {% endif %}
                 </li>
 
