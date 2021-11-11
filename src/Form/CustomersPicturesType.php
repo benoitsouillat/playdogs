@@ -25,7 +25,7 @@ class CustomersPicturesType extends AbstractType
                 'choices' => $dogs,
                 'choice_label' => function ($value) {
                     if (is_object($value)) {
-                        return $value->getName();
+                        return $value->getName().' de M '.$value->getOwner();
                     } else {
                         return 0;
                     }

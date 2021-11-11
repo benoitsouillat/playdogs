@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<section class="d-flex flex-row justify-content-around">
+    <div>
     {% if app.user %}
 
         {{form_start(form)}}
@@ -9,15 +11,27 @@
 
             <button type="submit" class="btn">Créer une diapo </button>
 
-            {{errors}}
+            <p>{{errors}} </p>
 
         {{form_end(form)}}
+    </div>
+    <div>
+            {% for data in datas %}
 
+            <p class="d-flex flex-row justify-content-between"> {{data.dog.name}} <br/>
+                {{data.sentence}}
+                <img class="w-25" src=" {{ asset('img/client/' ~ data.dog.filename) }}" />
+            </p>
+            <button class="btn btn-warning">Modifier</button>
+            <button class="btn btn-danger">Supprimer</button>
+            <br/>
 
+            {% endfor %}
+    </div>
     <div>
         {# Afficher l'image du dog actif #}
     </div>
-
+</section>
     {% else %}
     <div>
         <h3>Vous devez être administrateur pour accéder à cette page !! </h3>

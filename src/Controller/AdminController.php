@@ -90,19 +90,16 @@ class AdminController extends AbstractController
 
         $repo = $this->getDoctrine()->getRepository(Dog::class);
         $values = $repo->findAll();
-        if(!$carousel)
-        {
+        if(!$carousel) {
             $carousel = new CustomersPictures;
         }
         $form = $this->createForm(CustomersPicturesType::class, $carousel, [
             'values' => $values,
         ]);
+        $datas = $this->getDoctrine()->getRepository(CustomersPictures::class)->findAll();
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid())
         {
-            /* Il faut vérifier que l'entrée n'existe pas déjà en base de donnée. */
-            $datas = $this->getDoctrine()->getRepository(CustomersPictures::class)->findAll();
-
             foreach ($datas as $data)
             {
                 if($data->getDog()->getId() === $carousel->getDog()->getId())
@@ -110,20 +107,21 @@ class AdminController extends AbstractController
                     return $this->render('administration/carousel_edit.html.twig', [
                         'title' => "Créer une vignette d'accueil",
                         'form' => $form->createView(),
-                        'errors' => $form->getErrors()
+                        'errors' => "Ce chien est déjà utilisé !!!",
+                        'datas' => $datas
+                        
                     ]);
                 }
-                else {
-                    $manager->persist($carousel);
-                    $manager->flush();
-                }
             }
+            $manager->persist($carousel);
+            $manager->flush();
         }
         
         return $this->render('administration/carousel_edit.html.twig', [
             'title' => "Créer une vignette d'accueil",
             'form' => $form->createView(),
-            'errors' => $form->getErrors()
+            'errors' => $form->getErrors(),
+            'datas' => $datas
         ]);
 
 
