@@ -2,12 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\Dog;
 use App\Entity\User;
 use App\Entity\Price;
+use App\Form\AddUserType;
 use App\Entity\Candidates;
 use App\Form\AddPriceType;
-use App\Form\AddUserType;
 use App\Form\InscriptionType;
+use App\Entity\CustomersPictures;
+use App\Form\CustomersPicturesType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,8 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-
-
+use Symfony\Component\VarDumper\Cloner\Data;
 
 /**
 * @Route("/admin", name="admin_")
@@ -39,13 +41,10 @@ class AdminController extends AbstractController
      */
     public function addPrice(Price $price = null, EntityManagerInterface $manager, Request $request): Response
     {
-
         if(!$price)
         {
             $price = new Price();
         }
-
-
         $form = $this->createForm(AddPriceType::class, $price);
 
         $form->handleRequest($request);
@@ -79,6 +78,54 @@ class AdminController extends AbstractController
         $manager->flush();
 
         return $this->redirectToRoute('admin_price');
+
+    }
+
+    /**
+     * @Route ("/carousel", name="carousel")
+     * @Route ("/carousel/{id}", name="editcarousel")
+     */
+    public function createCarouselItem(CustomersPictures $carousel = null, Request $request, EntityManagerInterface $manager)
+    {
+
+        $repo = $this->getDoctrine()->getRepository(Dog::class);
+        $values = $repo->findAll();
+        if(!$carousel)
+        {
+            $carousel = new CustomersPictures;
+        }
+        $form = $this->createForm(CustomersPicturesType::class, $carousel, [
+            'values' => $values,
+        ]);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            /* Il faut vérifier que l'entrée n'existe pas déjà en base de donnée. */
+            $datas = $this->getDoctrine()->getRepository(CustomersPictures::class)->findAll();
+
+            foreach ($datas as $data)
+            {
+                if($data->getDog()->getId() === $carousel->getDog()->getId())
+                {
+                    return $this->render('administration/carousel_edit.html.twig', [
+                        'title' => "Créer une vignette d'accueil",
+                        'form' => $form->createView(),
+                        'errors' => $form->getErrors()
+                    ]);
+                }
+                else {
+                    $manager->persist($carousel);
+                    $manager->flush();
+                }
+            }
+        }
+        
+        return $this->render('administration/carousel_edit.html.twig', [
+            'title' => "Créer une vignette d'accueil",
+            'form' => $form->createView(),
+            'errors' => $form->getErrors()
+        ]);
+
 
     }
 

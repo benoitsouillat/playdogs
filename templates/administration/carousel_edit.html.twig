@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if app.user %}
+
+        {{form_start(form)}}
+            {{form_row(form.Dog)}}
+            {{form_row(form.sentence)}}
+
+            <button type="submit" class="btn">Créer une diapo </button>
+
+            {{errors}}
+
+        {{form_end(form)}}
+
+
+    <div>
+        {# Afficher l'image du dog actif #}
+    </div>
+
+    {% else %}
+    <div>
+        <h3>Vous devez être administrateur pour accéder à cette page !! </h3>
+    </div>
+
+    {% endif %}
+{% endblock %}
