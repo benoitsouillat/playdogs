@@ -188,6 +188,10 @@
             .hours {
                 display: none;
             }
+            .carou-accueil figure img{
+                max-height: unset;
+                max-width: 80%;
+            }
         }
     }
     .hour-table {
